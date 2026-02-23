@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zora Network Explained: Powerful L2 for Creators</title>
+<meta name="description" content="Zora Network is a creator-focused Layer 2 built on Ethereum for NFTs and onchain media. Learn how it works, fees, ecosystem, and how to start building today.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://zora-network.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Zora Network Explained: Powerful L2 for Creators">
+<meta property="og:description" content="Zora Network is a creator-focused Layer 2 built on Ethereum for NFTs and onchain media. Learn how it works, fees, ecosystem, and how to start building today.">
+<meta property="og:url" content="https://zora-network.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Zora Network Explained: Powerful L2 for Creators">
+<meta name="twitter:description" content="Zora Network is a creator-focused Layer 2 built on Ethereum for NFTs and onchain media. Learn how it works, fees, ecosystem, and how to start building today.">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Zora Network Explained: Powerful L2 for Creators", "description": "Zora Network is a creator-focused Layer 2 built on Ethereum for NFTs and onchain media. Learn how it works, fees, ecosystem, and how to start building today.", "inLanguage": "en", "dateModified": "2026-02-23", "url": "https://zora-network.github.io/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://zora-network.github.io"}, {"@type": "ListItem", "position": 2, "name": "Zora Network Explained: Powerful L2 for Creators", "item": "https://zora-network.github.io/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is Zora Network used for?", "acceptedAnswer": {"@type": "Answer", "text": "Zora Network is primarily used for minting, trading, and experimenting with NFTs and onchain media at lower cost than Ethereum mainnet. Creators deploy smart contracts, launch open editions, and build media-focused applications while remaining within the Ethereum ecosystem."}}, {"@type": "Question", "name": "How does Zora Network differ from Ethereum?", "acceptedAnswer": {"@type": "Answer", "text": "Zora Network operates as a Layer 2 on top of Ethereum rather than replacing it. Transactions execute on the rollup for lower fees, then settle back to Ethereum for security, combining scalability with mainnet anchoring."}}, {"@type": "Question", "name": "Is Zora Network part of the Optimism Superchain?", "acceptedAnswer": {"@type": "Answer", "text": "Zora Network is built using the OP Stack and aligns with the broader Superchain vision. Shared standards and infrastructure aim to improve interoperability among OP Stack-based chains."}}, {"@type": "Question", "name": "How do I bridge assets to Zora Network?", "acceptedAnswer": {"@type": "Answer", "text": "Bridging involves locking ETH or tokens on Ethereum mainnet and minting corresponding assets on Zora Network through an official bridge interface. Withdrawals may require waiting through an optimistic challenge period."}}, {"@type": "Question", "name": "Are gas fees on Zora Network always low?", "acceptedAnswer": {"@type": "Answer", "text": "Gas fees on Zora Network are generally lower than Ethereum mainnet because transactions are batched, but costs can still fluctuate based on network demand and underlying Ethereum data fees."}}, {"@type": "Question", "name": "Does Zora Network have its own token?", "acceptedAnswer": {"@type": "Answer", "text": "Zora Network has sparked speculation about a token, yet users should verify information through official sources. Token launches, if any, are subject to governance and regulatory considerations."}}, {"@type": "Question", "name": "Can developers deploy Solidity contracts on Zora Network?", "acceptedAnswer": {"@type": "Answer", "text": "Developers can deploy standard Solidity smart contracts because Zora Network is EVM-compatible. Existing Ethereum contracts often require minimal adjustments before deployment."}}, {"@type": "Question", "name": "What happens if something goes wrong on Zora Network?", "acceptedAnswer": {"@type": "Answer", "text": "If a dispute arises, optimistic rollup design allows fraud proofs during a challenge window. Ultimately, Ethereum mainnet enforces settlement, but smart contract bugs or user errors can still result in losses."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ===========================================
+   BASE LIGHT — Warm White Premium
+   Template ID: base-light
+   =========================================== */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg-primary: #faf9f7;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #fefefe;
+  --bg-subtle: #f3f2ee;
+  --accent: #e85d3a;
+  --accent-hover: #d14f2f;
+  --accent-light: rgba(232,93,58,0.07);
+  --accent-border: rgba(232,93,58,0.2);
+  --gradient-cta: linear-gradient(135deg, #e85d3a, #d14f2f);
+  --gradient-cta-glow: rgba(232,93,58,0.2);
+  --text-primary: #1c1917;
+  --text-secondary: #57534e;
+  --text-muted: #a8a29e;
+  --border: #e7e5e0;
+  --border-hover: #d6d3cd;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.08);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+body {
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ═══════ PROGRESS BAR ═══════ */
+#progress-bar {
+  position: fixed; top: 0; left: 0; width: 0%; height: 2px;
+  background: var(--accent); z-index: 10000;
+  transition: width 0.1s linear;
+}
+
+/* ═══════ CONTAINERS ═══════ */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+.content-container { max-width: 760px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+/* ═══════ PILL NAVIGATION ═══════ */
+.pill-nav {
+  position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+  z-index: 9000;
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: 50px; padding: 5px 6px;
+  display: flex; align-items: center; gap: 2px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.35s, transform 0.35s;
+  transform: translateX(-50%) translateY(-8px);
+  max-width: 94vw; overflow-x: auto;
+  scrollbar-width: none; -ms-overflow-style: none;
+}
+.pill-nav::-webkit-scrollbar { display: none; }
+.pill-nav.visible { opacity: 1; pointer-events: auto; transform: translateX(-50%) translateY(0); }
+
+.pill-nav a {
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 0.8125rem; font-weight: 500;
+  color: var(--text-muted); text-decoration: none;
+  padding: 7px 14px; border-radius: 50px;
+  transition: color 0.2s, background 0.2s; white-space: nowrap;
+}
+.pill-nav a:hover { color: var(--text-primary); background: var(--bg-subtle); }
+.pill-nav a.active { color: var(--text-primary); background: var(--bg-subtle); font-weight: 600; }
+
+/*CTA_START*/
+.pill-nav .pill-cta {
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 0.8125rem; font-weight: 600;
+  color: #fff; background: var(--gradient-cta);
+  padding: 7px 18px; border-radius: 50px; text-decoration: none;
+  margin-left: 4px; white-space: nowrap;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 12px var(--gradient-cta-glow);
+}
+.pill-nav .pill-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px var(--gradient-cta-glow); }
+/*CTA_END*/
+
+/* ═══════ HERO ═══════ */
+.hero {
+  position: relative; min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; z-index: 1; padding: 80px 24px;
+  background: var(--bg-secondary);
+}
+.hero::before {
+  content: ''; position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%);
+  width: 600px; height: 500px;
+  background: radial-gradient(ellipse, rgba(232,93,58,0.05) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-inner { max-width: 780px; position: relative; }
+
+.hero h1 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(2.75rem, 7vw, 4.75rem);
+  font-weight: 800; line-height: 1.06; letter-spacing: -0.04em;
+  color: var(--text-primary); margin-bottom: 24px;
+}
+.hero-subtitle {
+  font-size: 1.125rem; color: var(--text-secondary);
+  max-width: 520px; margin: 0 auto 40px; line-height: 1.8;
+}
+
+/*CTA_START*/
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 16px 38px; background: var(--gradient-cta); color: #fff;
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 1.0625rem; font-weight: 600;
+  text-decoration: none; border-radius: 50px;
+  transition: transform 0.25s, box-shadow 0.25s;
+  box-shadow: 0 4px 24px var(--gradient-cta-glow);
+  animation: ctaPulse 3s ease-in-out infinite;
+}
+.hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 36px rgba(232,93,58,0.3); animation: none; }
+.hero-cta svg { width: 18px; height: 18px; }
+@keyframes ctaPulse {
+  0%, 100% { box-shadow: 0 4px 24px var(--gradient-cta-glow); }
+  50% { box-shadow: 0 4px 32px rgba(232,93,58,0.3); }
+}
+/*CTA_END*/
+
+.hero-scroll-hint {
+  position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+  color: var(--text-muted); font-size: 0.7rem; font-family: 'Bricolage Grotesque', sans-serif;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  animation: hintPulse 2.5s ease-in-out infinite;
+}
+.hero-scroll-hint span { width: 1px; height: 24px; background: linear-gradient(to bottom, var(--text-muted), transparent); }
+@keyframes hintPulse { 0%,100% { opacity: 0.3; } 50% { opacity: 0.7; } }
+
+/* ═══════ CONTENT AREA ═══════ */
+.content-area { padding: 80px 0; position: relative; z-index: 1; }
+
+.content-area h2 {
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700; line-height: 1.2; letter-spacing: -0.025em;
+  color: var(--text-primary); margin: 64px 0 20px; padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+  scroll-margin-top: 80px;
+}
+.content-area h2:first-child { margin-top: 0; }
+.content-area h3 {
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 1.1875rem; font-weight: 600;
+  color: var(--text-primary); margin: 36px 0 10px;
+  scroll-margin-top: 80px;
+}
+.content-area h4 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 1.0625rem; font-weight: 600; color: var(--text-primary); margin: 24px 0 8px; }
+.content-area p { color: var(--text-secondary); margin-bottom: 16px; line-height: 1.85; }
+.content-area a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-light); transition: border-color 0.2s; }
+.content-area a:hover { border-bottom-color: var(--accent); }
+.content-area strong { color: var(--text-primary); font-weight: 700; }
+.content-area section { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid #f0eeea; }
+.content-area section:last-of-type { border-bottom: none; }
+
+/* Intro */
+.content-area .intro { font-size: 1.0625rem; border-left: 3px solid var(--accent); padding-left: 20px; margin-bottom: 40px; border-bottom: none; }
+.content-area .intro p { color: var(--text-secondary); font-size: 1.0625rem; }
+
+/* Capsule */
+.capsule {
+  background: var(--accent-light); border: 1px solid rgba(232,93,58,0.12);
+  border-radius: var(--radius-md); padding: 18px 22px;
+  font-size: 1.0625rem; line-height: 1.7;
+  color: var(--text-primary) !important; margin: 16px 0;
+}
+
+/* Evidence */
+.evidence {
+  font-size: 0.875rem; color: var(--text-muted) !important;
+  background: var(--bg-subtle); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 12px 16px 12px 42px;
+  margin: 12px 0 20px; position: relative;
+}
+.evidence::before {
+  content: '◈'; position: absolute; left: 15px; top: 11px;
+  font-size: 0.75rem; color: var(--accent);
+}
+
+/* Lists */
+.content-area ul, .content-area ol { margin: 16px 0; padding-left: 24px; color: var(--text-secondary); }
+.content-area li { margin-bottom: 8px; line-height: 1.75; }
+.content-area ul li::marker { color: var(--accent); }
+.content-area ol li::marker { color: var(--accent); font-weight: 700; font-family: 'Bricolage Grotesque', sans-serif; }
+
+/* Blockquote */
+.content-area blockquote {
+  background: var(--bg-subtle); border: 1px solid var(--border);
+  border-left: 3px solid var(--accent); padding: 24px 24px 24px 52px;
+  margin: 28px 0; border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  position: relative;
+}
+.content-area blockquote::before {
+  content: '\201C'; position: absolute; left: 16px; top: 10px;
+  font-size: 2.5rem; line-height: 1; color: var(--accent); opacity: 0.4;
+  font-family: Georgia, serif;
+}
+.content-area blockquote p { color: var(--text-primary); font-size: 1.0625rem; font-style: italic; margin: 0; }
+
+/* Table */
+.table-wrap { overflow-x: auto; margin: 24px 0; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); }
+.table-wrap table { width: 100%; border-collapse: collapse; }
+.table-wrap thead { background: var(--bg-subtle); }
+.table-wrap th { padding: 13px 18px; text-align: left; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-muted); border-bottom: 1px solid var(--border); }
+.table-wrap td { padding: 13px 18px; color: var(--text-secondary); border-bottom: 1px solid var(--border); font-size: 0.9375rem; }
+.table-wrap tbody tr:last-child td { border-bottom: none; }
+.table-wrap tbody tr:hover { background: var(--bg-subtle); }
+
+/* Cards */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin: 24px 0; }
+.card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius-md); padding: 22px;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+  box-shadow: var(--shadow-sm);
+}
+.card:hover { border-color: var(--border-hover); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.card h4 { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; color: var(--text-primary); margin: 0 0 8px; }
+.card p { font-size: 0.9375rem; color: var(--text-secondary); margin: 0; }
+
+/* Steps */
+.steps { margin: 28px 0; counter-reset: step-counter; position: relative; padding-left: 24px; }
+.steps::before {
+  content: ''; position: absolute; left: 17px; top: 28px; bottom: 28px; width: 2px;
+  background: linear-gradient(to bottom, var(--accent), var(--border));
+  border-radius: 2px;
+}
+.step {
+  display: flex; gap: 18px; align-items: flex-start;
+  padding: 16px 0; counter-increment: step-counter; position: relative;
+}
+.step::before {
+  content: counter(step-counter); min-width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--bg-secondary); border: 2px solid var(--accent);
+  border-radius: 50%; font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 700; font-size: 0.8125rem; color: var(--accent); flex-shrink: 0;
+  position: relative; z-index: 1;
+}
+.step h4 { margin: 0 0 4px; }
+.step p { margin: 0; font-size: 0.9375rem; }
+
+/* TOC */
+.toc {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 24px 28px; margin: 24px 0 40px;
+  box-shadow: var(--shadow-sm);
+}
+.toc h2 { font-size: 0.8125rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin: 0 0 12px; padding: 0; border: none; }
+.toc ol { padding-left: 20px; margin: 0; }
+.toc li { margin-bottom: 5px; }
+.toc a { color: var(--text-secondary); border-bottom: none; font-size: 0.9375rem; }
+.toc a:hover { color: var(--accent); }
+
+/* Pills */
+.pill-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+.pill { display: inline-block; padding: 5px 14px; background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 50px; color: var(--text-secondary); font-size: 0.8125rem; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
+.pill:hover { border-color: var(--accent); color: var(--accent); }
+
+/*CTA_START*/
+.mid-cta { text-align: center; margin: 36px 0; }
+
+.cta-section {
+  text-align: center; padding: 56px 32px; margin: 48px 0;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius-xl); box-shadow: var(--shadow-md);
+  position: relative; overflow: hidden;
+}
+.cta-section::before {
+  content: ''; position: absolute; top: -50%; left: -30%; width: 160%; height: 160%;
+  background: radial-gradient(ellipse, rgba(232,93,58,0.03), transparent 60%);
+  pointer-events: none;
+}
+.cta-section h2 { border: none; padding: 0; margin: 0 0 10px; position: relative; }
+.cta-section p { margin-bottom: 26px; position: relative; }
+
+.cta-button {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 15px 36px; background: var(--gradient-cta); color: #fff;
+  font-family: 'Bricolage Grotesque', sans-serif; font-size: 1rem; font-weight: 600;
+  text-decoration: none; border-radius: 50px;
+  box-shadow: 0 4px 20px var(--gradient-cta-glow);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.cta-button:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(232,93,58,0.3); }
+
+.floating-cta {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 8000;
+  background: rgba(255,255,255,0.92); backdrop-filter: blur(16px);
+  border-top: 1px solid var(--border);
+  padding: 12px 24px; text-align: center;
+  transform: translateY(100%); transition: transform 0.35s ease;
+}
+.floating-cta.visible { transform: translateY(0); }
+.floating-cta .cta-button { padding: 12px 28px; font-size: 0.9375rem; }
+/*CTA_END*/
+
+/* FAQ */
+.faq-section { margin: 48px 0; border-bottom: none !important; }
+.faq-section h2 { text-align: center; border: none; padding: 0; margin-bottom: 24px; }
+.faq-section details { border-bottom: 1px solid var(--border); }
+.faq-section details:first-of-type { border-top: 1px solid var(--border); }
+.faq-section summary {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 4px; cursor: pointer; font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 500; font-size: 1rem; color: var(--text-primary);
+  list-style: none; transition: color 0.2s;
+}
+.faq-section summary::-webkit-details-marker { display: none; }
+.faq-section summary::after { content: '+'; font-size: 1.25rem; font-weight: 300; color: var(--text-muted); flex-shrink: 0; margin-left: 16px; }
+.faq-section details[open] summary::after { content: '\2212'; color: var(--accent); }
+.faq-section summary:hover { color: var(--accent); }
+.faq-section details p { padding: 0 4px 18px; font-size: 0.9375rem; color: var(--text-secondary); }
+.faq-section h3 { margin-top: 24px; }
+.faq-section dl { margin: 0; }
+.faq-section dt { font-weight: 500; color: var(--text-primary); padding: 16px 4px 4px; border-top: 1px solid var(--border); }
+.faq-section dt:first-child { border-top: none; }
+.faq-section dd { padding: 0 4px 16px; color: var(--text-secondary); font-size: 0.9375rem; margin: 0; }
+
+.disclosure { font-size: 0.8125rem; color: var(--text-muted); font-style: italic; text-align: center; padding: 16px 0; border-top: 1px solid var(--border); margin-top: 40px; }
+
+footer { padding: 40px 0; border-top: 1px solid var(--border); text-align: center; position: relative; z-index: 1; }
+footer p { color: var(--text-muted); font-size: 0.8125rem; }
+footer .updated { margin-top: 6px; font-size: 0.75rem; }
+
+#back-to-top {
+  position: fixed; bottom: 32px; right: 32px; width: 42px; height: 42px;
+  background: var(--bg-secondary); border: 1px solid var(--border);
+  border-radius: 50%; color: var(--text-muted); font-size: 1.125rem;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s;
+  z-index: 999; box-shadow: var(--shadow-md);
+}
+#back-to-top.visible { opacity: 1; visibility: visible; }
+#back-to-top:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+.fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+.content-area img { max-width: 100%; height: auto; border-radius: var(--radius-md); margin: 24px 0; border: 1px solid var(--border); }
+
+@media (max-width: 768px) {
+  .container, .content-container { padding: 0 16px; }
+  .hero h1 { font-size: 2.25rem; }
+  .pill-nav { padding: 4px 5px; }
+  .pill-nav a { padding: 6px 10px; font-size: 0.75rem; }
+  .pill-nav .pill-cta { padding: 6px 14px; font-size: 0.75rem; }
+  .card-grid { grid-template-columns: 1fr; }
+  .steps { padding-left: 16px; }
+  .step::before { min-width: 30px; height: 30px; font-size: 0.75rem; }
+  #back-to-top { bottom: 72px; right: 16px; }
+}
+
+@media print {
+  .pill-nav, .hero-cta, .cta-section, .mid-cta, .floating-cta, #back-to-top, #progress-bar, .hero-scroll-hint { display: none !important; }
+  body { color: #000; background: #fff; }
+  .hero { min-height: auto; padding: 40px 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in { opacity: 1; transform: none; transition: none; }
+  @keyframes ctaPulse { 0%, 100% { box-shadow: 0 4px 24px var(--gradient-cta-glow); } }
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+.disclaimer-block {
+    font-size: 13px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    padding: 20px 0;
+    margin-top: 32px;
+    font-style: italic;
+}
+.disclaimer-block p { margin: 0; }
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<nav class="pill-nav" id="pill-nav"></nav>
+
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <h1>Zora Network</h1>
+    <p class="hero-subtitle">Build, mint, and trade NFTs with low fees.</p>
+    <!--CTA_START-->
+    <a href="/sushiswap/" class="hero-cta">Explore Zora Network <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <!--CTA_END-->
+  </div>
+  <div class="hero-scroll-hint">scroll<span></span></div>
+</section>
+
+<main class="content-area">
+  <div class="content-container">
+    <section class="intro">
+  <p><strong>Zora Network</strong> is an Ethereum Layer 2 blockchain built with the OP Stack that focuses on low-cost NFT minting, onchain media, and creator-owned marketplaces. Designed for artists, developers, and brands, it reduces gas fees while staying anchored to Ethereum’s security model. Instead of treating NFTs as side features, it puts digital media at the center of its architecture.</p>
+  <p>Curious creators often land here after hearing about the creator economy on crypto rails. They want to know what Zora Network actually does, how it compares to Base or Arbitrum, and whether minting costs are meaningfully lower. We’ll break down the mechanics, not just the marketing — from gas economics to bridging, wallets, and ecosystem projects.</p>
+  <p>After testing multiple Layer 2 networks ourselves, we found that differences only become clear when you look at real transactions and developer tooling. Think of choosing a Layer 2 like picking a city to open a shop: rent, foot traffic, and local culture all matter. By the end, you’ll understand where Zora Network fits — and where it doesn’t.</p>
+</section>
+
+<nav class="toc" aria-label="Table of Contents">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#what-is-zora-network">What Is Zora Network?</a></li>
+    <li><a href="#why-zora-network-exists">Why Zora Network Exists</a></li>
+    <li><a href="#how-zora-network-works">How Zora Network Works</a></li>
+    <li><a href="#zora-network-gas-fees">Zora Network Gas Fees Explained</a></li>
+    <li><a href="#minting-on-zora-network">Minting on Zora Network</a></li>
+    <li><a href="#zora-network-ecosystem">Zora Network Ecosystem</a></li>
+    <li><a href="#zora-network-vs-other-l2s">Zora Network vs Other L2s</a></li>
+    <li><a href="#who-should-use-zora-network">Who Should Use Zora Network?</a></li>
+  </ol>
+</nav>
+
+<section id="what-is-zora-network">
+  <h2>What Is Zora Network?</h2>
+  <p class="capsule">Zora Network is a creator-focused Ethereum Layer 2 built using the OP Stack that enables low-cost NFT minting, onchain media publishing, and decentralized marketplaces while inheriting Ethereum’s security. It prioritizes artists and developers who want scalable infrastructure without leaving the Ethereum ecosystem.</p>
+  <p class="evidence">Zora Network is built on the OP Stack from Optimism and connects to the broader Superchain vision described in the official Optimism documentation at <a href="https://docs.optimism.io/" rel="noopener noreferrer" target="_blank">https://docs.optimism.io/</a>.</p>
+  <p>At its core, Zora Network acts as a rollup. Transactions are processed off Ethereum mainnet, then periodically posted back to Ethereum for settlement. That design lowers fees while preserving the underlying security guarantees of Ethereum.</p>
+  <p>Unlike general-purpose Layer 2 chains that target DeFi first, Zora emphasizes NFTs and onchain media. Creator tools, minting contracts, and marketplace logic sit at the heart of the ecosystem.</p>
+  <p>Focus shapes everything.</p>
+  <h3>Zora Network as an Ethereum Layer 2</h3>
+  <p>Running as an Ethereum Layer 2 means Zora batches transactions and posts compressed data back to mainnet. Ethereum ultimately secures the state. For background on how rollups function, see the Ethereum Foundation’s explanation at <a href="https://ethereum.org/en/layer-2/" rel="noopener noreferrer" target="_blank">https://ethereum.org/en/layer-2/</a>.</p>
+  <h3>Creator-First Design Philosophy</h3>
+  <p>Many chains treat NFTs as one application among many. Zora Network flips that hierarchy. Minting, royalties, and media publishing are treated as primitives, not add-ons. That shift affects contract templates, fee models, and marketplace integration.</p>
+  <h3>Zora Blockchain vs Marketplace</h3>
+  <p>Zora began as an NFT marketplace before launching its own blockchain. Marketplace and network now coexist: one is an application layer, the other is infrastructure. Confusing them leads to misunderstandings about tokens, governance, and fee flows.</p>
+</section>
+
+<section id="why-zora-network-exists">
+  <h2>Why Zora Network Exists</h2>
+  <p class="capsule">Zora Network exists to lower the economic and technical barriers for creators publishing NFTs and onchain media, addressing high Ethereum gas fees and limited creator control by offering a purpose-built Layer 2 aligned with the Optimism Superchain.</p>
+  <p class="evidence">Ethereum gas fees have historically spiked above $50 per transaction during peak demand, a well-documented issue discussed on <a href="https://en.wikipedia.org/wiki/Ethereum" rel="noopener noreferrer" target="_blank">https://en.wikipedia.org/wiki/Ethereum</a>, making small NFT mints impractical on mainnet.</p>
+  <p>High fees once forced artists to choose between visibility on Ethereum and affordability elsewhere. Zora Network attempts to remove that tradeoff by anchoring to Ethereum while dramatically lowering minting costs.</p>
+  <p>Beyond cost, ownership matters. Traditional platforms take large revenue cuts and control distribution algorithms. Onchain publishing gives creators programmable royalties and transparent transaction history.</p>
+  <p>Control changes incentives.</p>
+  <h3>Gas Fees as a Barrier</h3>
+  <p>During NFT booms, minting a single token on Ethereum mainnet could cost more than the artwork itself. Lower fees on Zora Network enable experimental drops, open editions, and micro-priced collectibles that would otherwise be uneconomical.</p>
+  <h3>Alignment with the OP Stack</h3>
+  <p>Choosing the OP Stack aligns Zora Network with the broader Optimism Superchain. Shared standards may improve interoperability across chains like Base and other OP Stack deployments.</p>
+  <h3>Creator-Owned Infrastructure</h3>
+  <p>Owning infrastructure resembles owning your own website instead of relying solely on a social platform. Rules become programmable. Revenue flows become transparent. That autonomy attracts serious builders.</p>
+</section>
+
+<section id="how-zora-network-works">
+  <h2>How Zora Network Works</h2>
+  <p class="capsule">Zora Network processes transactions as an optimistic rollup, batching user actions off-chain and periodically submitting compressed proofs to Ethereum, where final settlement and security enforcement occur under the OP Stack framework.</p>
+  <p class="evidence">Optimistic rollups assume transactions are valid by default and allow fraud proofs within a challenge window, a model documented by Optimism at <a href="https://docs.optimism.io/stack/rollups" rel="noopener noreferrer" target="_blank">https://docs.optimism.io/stack/rollups</a>.</p>
+  <p>Users submit transactions to Zora Network nodes instead of Ethereum mainnet directly. Those transactions are grouped into batches. Compressed data is then posted to Ethereum, reducing overall costs per user.</p>
+  <p>If someone detects fraudulent activity, they can submit a fraud proof during the challenge period. Ethereum ultimately arbitrates disputes.</p>
+  <p>Security flows downward from mainnet.</p>
+  <h3>Role of the OP Stack</h3>
+  <p>OP Stack provides modular components for execution, settlement, and data availability. Zora Network adopts these modules rather than building everything from scratch, accelerating development and improving compatibility with other OP chains.</p>
+  <h3>Bridging Assets to Zora Network</h3>
+  <p>Moving ETH or tokens to Zora Network requires a bridge transaction. Assets lock on Ethereum and mint representations on Layer 2. Withdrawal usually involves a waiting period tied to the optimistic challenge window.</p>
+  <h3>Smart Contracts and NFTs</h3>
+  <p>Smart contracts on Zora Network remain compatible with Ethereum’s Virtual Machine (EVM). Developers can deploy familiar Solidity contracts, including NFT standards like ERC-721 and ERC-1155.</p>
+</section>
+
+<section id="zora-network-gas-fees">
+  <h2>Zora Network Gas Fees Explained</h2>
+  <p class="capsule">Zora Network gas fees are typically significantly lower than Ethereum mainnet because transactions are batched and data is compressed before settlement, allowing creators to mint and trade NFTs at a fraction of mainnet cost.</p>
+  <p class="evidence">Layer 2 networks often reduce fees by 10x or more compared to Ethereum mainnet, according to comparative data tracked by multiple analytics dashboards and summarized on Ethereum.org’s Layer 2 overview.</p>
+  <p>Exact fees fluctuate with demand and Ethereum base costs. In our experience testing NFT mints across L2s, fees on Zora Network usually fall within cents to low-dollar ranges rather than double-digit amounts.</p>
+  <p>Bridging still incurs mainnet gas. That upfront cost can surprise new users.</p>
+  <p>Cheap mints change behavior.</p>
+  <h3>What You Actually Pay</h3>
+  <p>Users pay execution fees on Zora Network plus a portion of Ethereum data costs. Interface tools often estimate fees before confirmation, giving transparency at the wallet level.</p>
+  <h3>Comparing Zora L2 to Mainnet</h3>
+  <p>Minting an NFT on Ethereum might cost tens of dollars during congestion. On Zora L2, the same action can cost a small fraction. Think of it as buying wholesale instead of retail — same goods, different pricing structure.</p>
+  <h3>Hidden Costs to Watch</h3>
+  <p>Withdrawal delays, bridge fees, and fluctuating ETH prices can affect total cost. Advanced users should account for those variables before planning large drops.</p>
+</section>
+
+<section id="minting-on-zora-network">
+  <h2>Minting on Zora Network</h2>
+  <p class="capsule">Minting on Zora Network involves connecting a compatible wallet, bridging ETH if necessary, deploying or using an NFT contract, and confirming the transaction on Layer 2, typically at lower gas costs than Ethereum mainnet.</p>
+  <p class="evidence">Zora’s official tools and contracts are publicly documented through its developer resources and GitHub repositories, enabling transparent contract interaction and verification.</p>
+  <p>Process matters. Clear steps reduce errors and wasted fees.</p>
+  <div class="steps">
+    <div class="step">
+      <div>
+        <h4>Connect Wallet</h4>
+        <p>Use an EVM-compatible wallet such as MetaMask and add Zora Network RPC details if not preconfigured.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div>
+        <h4>Bridge ETH</h4>
+        <p>Transfer ETH from Ethereum mainnet to Zora Network using an official bridge interface.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div>
+        <h4>Create or Deploy</h4>
+        <p>Choose a template contract or deploy a custom ERC-721 or ERC-1155 smart contract.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div>
+        <h4>Confirm Mint</h4>
+        <p>Approve the transaction in your wallet and wait for Layer 2 confirmation.</p>
+      </div>
+    </div>
+  </div>
+  <h3>Zora Network Wallet Setup</h3>
+  <p>Adding Zora Network to a wallet requires RPC details and chain ID configuration. Many modern wallets auto-detect OP Stack chains, simplifying setup.</p>
+  <h3>Open Editions and Drops</h3>
+  <p>Open edition mints allow unlimited tokens during a time window. Lower gas fees on Zora Network make that format economically viable.</p>
+  <h3>Royalty Mechanics</h3>
+  <p>Royalty logic can be embedded at the contract level. Secondary marketplaces may respect or ignore royalties, so creators should understand enforcement limits.</p>
+</section>
+
+<section id="zora-network-ecosystem">
+  <h2>Zora Network Ecosystem</h2>
+  <p class="capsule">Zora Network ecosystem includes NFT marketplaces, onchain media tools, developer SDKs, and community-driven projects built on its OP Stack infrastructure, all centered around creator monetization and digital ownership.</p>
+  <p class="evidence">Ecosystem growth aligns with the broader Optimism Superchain vision, which aims to interconnect OP Stack chains under shared standards and governance models.</p>
+  <p>Applications range from art drops to experimental social tokens. Developer tooling encourages composability, allowing projects to integrate minting directly into custom interfaces.</p>
+  <p>After comparing ecosystems across Base and Arbitrum, we noticed Zora Network skews heavily toward media-native projects rather than DeFi-heavy protocols.</p>
+  <p>Culture shapes code.</p>
+  <h3>Developer Tools on Zora Network</h3>
+  <p>SDKs and contract templates reduce friction for teams launching NFT collections. Familiar EVM tooling lowers onboarding time for Solidity developers.</p>
+  <h3>Community and Governance</h3>
+  <p>Community participation often influences feature rollouts and ecosystem grants. Alignment with Optimism may introduce shared governance elements in the future.</p>
+  <h3>Zora Token Speculation</h3>
+  <p>Search interest around a potential Zora token or airdrop reflects broader crypto patterns. Official communications should be the only trusted source for confirmation.</p>
+</section>
+
+<section id="zora-network-vs-other-l2s">
+  <h2>Zora Network vs Other L2s</h2>
+  <p class="capsule">Zora Network differs from other Layer 2 solutions like Base or Arbitrum by focusing primarily on NFT minting and onchain media, while many competitors prioritize DeFi or general-purpose applications.</p>
+  <p class="evidence">Base and other OP Stack chains share technical foundations, yet ecosystem emphasis varies significantly depending on target audience and founding teams.</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Zora Network</th>
+          <th>Base</th>
+          <th>Arbitrum</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Primary Focus</td>
+          <td>NFTs &amp; media</td>
+          <td>Consumer apps</td>
+          <td>DeFi &amp; gaming</td>
+        </tr>
+        <tr>
+          <td>Technology</td>
+          <td>OP Stack</td>
+          <td>OP Stack</td>
+          <td>Optimistic rollup</td>
+        </tr>
+        <tr>
+          <td>EVM Compatibility</td>
+          <td>Yes</td>
+          <td>Yes</td>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <td>Gas Fees</td>
+          <td>Low</td>
+          <td>Low</td>
+          <td>Low</td>
+        </tr>
+        <tr>
+          <td>Ecosystem Bias</td>
+          <td>Creators</td>
+          <td>Retail users</td>
+          <td>Traders</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Choosing between them resembles choosing a neighborhood rather than a country. Infrastructure may be similar, yet community and application focus differ meaningfully.</p>
+  <h3>Zora Network vs Base</h3>
+  <p>Both chains use the OP Stack. Zora Network emphasizes creator tooling, while Base positions itself toward broader consumer adoption and brand integrations.</p>
+  <h3>Zora Network vs Arbitrum</h3>
+  <p>Arbitrum has a mature DeFi ecosystem with deep liquidity. Zora Network instead concentrates on NFT-native experiences and onchain culture.</p>
+  <h3>Interoperability Across L2s</h3>
+  <p>Bridges and shared standards may allow smoother asset movement over time, especially within OP Stack chains aligned under the Superchain model.</p>
+</section>
+
+<section id="who-should-use-zora-network">
+  <h2>Who Should Use Zora Network?</h2>
+  <p class="capsule">Zora Network is best suited for NFT artists, digital media creators, experimental brands, and developers seeking low-cost minting and EVM compatibility within the Ethereum ecosystem.</p>
+  <p class="evidence">Lower Layer 2 fees and OP Stack compatibility make it attractive for projects that require frequent minting or micro-priced digital assets.</p>
+  <p>Independent artists launching open editions often benefit most. Brands testing Web3 campaigns without committing to mainnet-scale costs may also find value.</p>
+  <p>Not everyone needs it.</p>
+  <h3>Ideal for NFT Creators</h3>
+  <p>Creators experimenting with generative art, music NFTs, or limited drops can iterate quickly without worrying about high gas fees.</p>
+  <h3>Developers Building Media Apps</h3>
+  <p>EVM compatibility allows rapid deployment of Solidity contracts. Teams can port existing Ethereum codebases with minimal modification.</p>
+  <h3>Who Might Look Elsewhere</h3>
+  <p>Projects focused primarily on complex DeFi protocols or high-liquidity trading may prefer chains with deeper financial ecosystems.</p>
+</section>
+
+
+<section id="comparison">
+  <h2>Zora Network Technical Comparison</h2>
+  <p class="capsule">Zora Network shares core rollup architecture with other OP Stack chains but distinguishes itself through creator-centric tooling, NFT-optimized contracts, and ecosystem focus rather than DeFi liquidity depth or high-frequency trading infrastructure.</p>
+  <p class="evidence">OP Stack documentation confirms modular rollup design across chains in the Superchain, enabling shared standards while allowing ecosystem specialization.</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Zora Network</th>
+          <th>General L2 (Example)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Core Stack</td>
+          <td>OP Stack (Optimistic Rollup)</td>
+          <td>OP Stack or Custom Rollup</td>
+        </tr>
+        <tr>
+          <td>Main Audience</td>
+          <td>NFT creators &amp; media apps</td>
+          <td>DeFi traders &amp; dApps</td>
+        </tr>
+        <tr>
+          <td>Gas Model</td>
+          <td>Batched, compressed settlement</td>
+          <td>Batched, compressed settlement</td>
+        </tr>
+        <tr>
+          <td>EVM Support</td>
+          <td>Full compatibility</td>
+          <td>Usually full compatibility</td>
+        </tr>
+        <tr>
+          <td>Ecosystem Bias</td>
+          <td>Onchain culture &amp; art</td>
+          <td>Financial primitives</td>
+        </tr>
+        <tr>
+          <td>Bridge Model</td>
+          <td>Optimistic challenge window</td>
+          <td>Optimistic or zk-based</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Architecture may look similar on paper. Culture and incentives create the real differences.</p>
+  <h3>Zora Network vs OP Stack Peers</h3>
+  <p>Because Zora Network uses the same foundational framework as other OP Stack chains, contract portability is high. Developers can migrate codebases without rewriting core logic, reducing switching friction.</p>
+  <h3>Security Assumptions Compared</h3>
+  <p>Optimistic rollups rely on fraud proofs and a dispute window. Zero-knowledge rollups use cryptographic validity proofs instead. Each model involves trade-offs between withdrawal speed, complexity, and operational overhead.</p>
+  <h3>Performance in Practice</h3>
+  <p>Block times and confirmation speeds on Zora Network feel similar to other L2s. For creators minting NFTs, marginal differences matter less than fee predictability and contract simplicity.</p>
+</section>
+
+<section id="security">
+  <h2>Is Zora Network Safe?</h2>
+  <p class="capsule">Zora Network inherits Ethereum’s security through its optimistic rollup design but carries smart contract, bridge, and operational risks common to Layer 2 networks, requiring users to understand custody and withdrawal mechanics.</p>
+  <ul>
+    <li><strong>Ethereum Settlement Layer</strong> — Transactions ultimately settle on Ethereum mainnet, anchoring Zora Network security to Ethereum’s consensus model.</li>
+    <li><strong>Optimistic Fraud Proofs</strong> — The OP Stack design allows disputes during a challenge window, reducing risk of invalid state transitions.</li>
+    <li><strong>Smart Contract Risk</strong> — NFT contracts deployed by creators can contain bugs; users should review verified source code where available.</li>
+    <li><strong>Bridge Delay Risk</strong> — Withdrawals to Ethereum may require waiting through a challenge period, exposing users to timing and liquidity constraints.</li>
+  </ul>
+  <p>Risk never disappears. It shifts.</p>
+  <h3>Zora Network and Self-Custody</h3>
+  <p>Assets on Zora Network remain in self-custodied wallets. Private keys control funds, not a centralized intermediary. Losing access to keys means losing access to assets.</p>
+  <h3>Audit Transparency</h3>
+  <p>OP Stack components and many ecosystem contracts are open source, enabling community review. Open code does not guarantee safety, yet transparency improves scrutiny.</p>
+  <h3>Understanding Bridge Mechanics</h3>
+  <p>Bridging locks tokens on Ethereum and mints representations on Zora Network. If a bridge contract were compromised, users could face losses, which is why official bridge interfaces are strongly recommended.</p>
+</section>
+
+<section id="zora-network-roadmap">
+  <h2>Zora Network Roadmap and Future</h2>
+  <p class="capsule">Zora Network’s roadmap centers on expanding creator tools, improving interoperability within the Optimism Superchain, and enhancing scalability while maintaining alignment with Ethereum’s evolving standards.</p>
+  <p class="evidence">Optimism’s public Superchain vision outlines long-term goals of interconnected OP Stack chains sharing upgrades and governance standards.</p>
+  <p>Future upgrades may include improved data availability solutions and tighter integration with other OP Stack deployments. Shared upgrades can propagate across the Superchain, benefiting Zora Network indirectly.</p>
+  <p>Expect iteration, not reinvention.</p>
+  <h3>Superchain Integration</h3>
+  <p>As more chains adopt the OP Stack, interoperability could improve. Shared messaging standards may allow smoother asset and data transfers between Zora Network and peer chains.</p>
+  <h3>Scaling Improvements</h3>
+  <p>Rollup performance depends partly on Ethereum upgrades. Changes such as proto-danksharding aim to reduce data costs, potentially lowering Zora Network gas fees further.</p>
+  <h3>Community-Driven Growth</h3>
+  <p>Ecosystem grants, hackathons, and creator incentives often shape practical adoption. Growth rarely follows a straight line; cultural momentum matters as much as technical upgrades.</p>
+</section>
+
+<section id="zora-network-token-airdrop">
+  <h2>Zora Network Token and Airdrop Questions</h2>
+  <p class="capsule">Zora Network has generated speculation about a potential token or airdrop, but users should rely solely on official announcements, as token launches involve regulatory, governance, and security considerations.</p>
+  <p class="evidence">Airdrop speculation is common across Layer 2 ecosystems, often driven by community expectations rather than confirmed releases.</p>
+  <p>Search trends frequently spike around the phrase “Zora token.” That pattern mirrors earlier Layer 2 launches where early users later received governance tokens.</p>
+  <p>Speculation is not confirmation.</p>
+  <h3>Why Airdrop Rumors Spread</h3>
+  <p>Layer 2 networks sometimes reward early adopters. Users extrapolate from those examples and assume similar outcomes for Zora Network.</p>
+  <h3>Governance Possibilities</h3>
+  <p>If a token were introduced, it could enable voting on protocol upgrades or ecosystem funding. Governance design varies widely across projects.</p>
+  <h3>Risk Considerations</h3>
+  <p>Chasing airdrops can lead to excessive transaction fees or risky interactions with unofficial tools. Always verify announcements through official Zora Network communication channels.</p>
+</section>
+
+<section id="zora-network-faq-overview">
+  <h2>Zora Network Key Takeaways</h2>
+  <p class="capsule">Zora Network combines Ethereum-aligned security, OP Stack rollup efficiency, and creator-focused tooling to support low-cost NFT minting and onchain media, making it particularly suitable for artists and developers building within the Ethereum ecosystem.</p>
+  <p class="evidence">Its architecture mirrors documented optimistic rollup models while its ecosystem skews toward NFT-native applications rather than DeFi-heavy protocols.</p>
+  <p>Viewed holistically, Zora Network is less about financial engineering and more about digital culture infrastructure. That distinction shapes fee models, community incentives, and developer priorities.</p>
+  <p>After comparing multiple L2s, we see it as a specialized venue rather than a universal platform.</p>
+  <p>Specialization has trade-offs.</p>
+  <h3>Strengths of Zora Network</h3>
+  <p>Low minting costs, EVM compatibility, and alignment with Ethereum security make it accessible to creators who value decentralization and ownership.</p>
+  <h3>Limitations to Consider</h3>
+  <p>Liquidity depth and DeFi tooling may lag behind chains optimized for trading. Withdrawal delays inherent to optimistic rollups also apply.</p>
+  <h3>Long-Term Outlook</h3>
+  <p>Success depends on sustained creator adoption and continued Ethereum scaling improvements. Infrastructure alone does not guarantee cultural traction.</p>
+</section>
+
+<section class="faq-section" id="faq">
+  <h2>Frequently Asked Questions</h2>
+  <details>
+    <summary>What is Zora Network used for?</summary>
+    <p>Zora Network is primarily used for minting, trading, and experimenting with NFTs and onchain media at lower cost than Ethereum mainnet. Creators deploy smart contracts, launch open editions, and build media-focused applications while remaining within the Ethereum ecosystem.</p>
+  </details>
+  <details>
+    <summary>How does Zora Network differ from Ethereum?</summary>
+    <p>Zora Network operates as a Layer 2 on top of Ethereum rather than replacing it. Transactions execute on the rollup for lower fees, then settle back to Ethereum for security, combining scalability with mainnet anchoring.</p>
+  </details>
+  <details>
+    <summary>Is Zora Network part of the Optimism Superchain?</summary>
+    <p>Zora Network is built using the OP Stack and aligns with the broader Superchain vision. Shared standards and infrastructure aim to improve interoperability among OP Stack-based chains.</p>
+  </details>
+  <details>
+    <summary>How do I bridge assets to Zora Network?</summary>
+    <p>Bridging involves locking ETH or tokens on Ethereum mainnet and minting corresponding assets on Zora Network through an official bridge interface. Withdrawals may require waiting through an optimistic challenge period.</p>
+  </details>
+  <details>
+    <summary>Are gas fees on Zora Network always low?</summary>
+    <p>Gas fees on Zora Network are generally lower than Ethereum mainnet because transactions are batched, but costs can still fluctuate based on network demand and underlying Ethereum data fees.</p>
+  </details>
+  <details>
+    <summary>Does Zora Network have its own token?</summary>
+    <p>Zora Network has sparked speculation about a token, yet users should verify information through official sources. Token launches, if any, are subject to governance and regulatory considerations.</p>
+  </details>
+  <details>
+    <summary>Can developers deploy Solidity contracts on Zora Network?</summary>
+    <p>Developers can deploy standard Solidity smart contracts because Zora Network is EVM-compatible. Existing Ethereum contracts often require minimal adjustments before deployment.</p>
+  </details>
+  <details>
+    <summary>What happens if something goes wrong on Zora Network?</summary>
+    <p>If a dispute arises, optimistic rollup design allows fraud proofs during a challenge window. Ultimately, Ethereum mainnet enforces settlement, but smart contract bugs or user errors can still result in losses.</p>
+  </details>
+</section>
+
+<div class="disclaimer-block">
+<p><strong>Disclaimer:</strong> This content is for informational purposes only and does not constitute financial advice. Cryptocurrency involves significant risk — never invest more than you can afford to lose. Consult a licensed financial advisor before making investment decisions.</p>
+</div>
+
+<section class="cta-section" id="cta">
+  <h2>Explore Zora Network Further</h2>
+  <p>Ready to see how creator-focused Layer 2 infrastructure works in practice? Start experimenting with minting tools and experience Zora Network directly.</p>
+  <a href="https://zora.co/" class="cta-button" rel="noopener noreferrer" target="_blank">Start Minting NFTs &rarr;</a>
+</section>
+  </div>
+<p class="disclosure">This page may contain affiliate links. We may earn a commission at no extra cost to you.</p>
+</main>
+
+<!--CTA_START-->
+<div class="floating-cta" id="floating-cta">
+  <a href="/sushiswap/" class="cta-button">Explore Zora Network &rarr;</a>
+</div>
+<!--CTA_END-->
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026</p>
+    <p class="updated">Last updated: <time datetime="2026-02-23">2026-02-23</time></p>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="Back to top">&uarr;</button>
+
+<script>
+(function() {
+  'use strict';
+  var bar = document.getElementById('progress-bar');
+  var btt = document.getElementById('back-to-top');
+  var nav = document.getElementById('pill-nav');
+  var hero = document.getElementById('hero');
+  var floatCta = document.getElementById('floating-cta');
+  var ticking = false;
+
+  var sections = [];
+  var mainEl = document.querySelector('.content-area');
+  if (nav && mainEl) {
+    var h2s = mainEl.querySelectorAll('h2[id]');
+    h2s.forEach(function(h2) {
+      var words = h2.textContent.trim().split(/\s+/);
+      var label = words.slice(0, 3).join(' ');
+      if (words.length > 3) label += '\u2026';
+      var a = document.createElement('a');
+      a.href = '#' + h2.id;
+      a.textContent = label;
+      nav.appendChild(a);
+      sections.push({ el: h2.closest('section') || h2, link: a });
+    });
+    var ctaLink = document.querySelector('.hero-cta');
+    if (ctaLink) {
+      var ctaA = document.createElement('a');
+      ctaA.href = ctaLink.href;
+      ctaA.className = 'pill-cta';
+      ctaA.textContent = ctaLink.textContent.trim().replace(/\s*\u2192\s*$/, '');
+      nav.appendChild(ctaA);
+    }
+  }
+
+  var allSections = document.querySelectorAll('.content-area section, .content-area .toc');
+  allSections.forEach(function(s) { s.classList.add('fade-in'); });
+
+  function onScroll() {
+    var st = window.scrollY;
+    var dh = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (dh > 0 ? (st / dh) * 100 : 0) + '%';
+    btt.classList.toggle('visible', st > 500);
+    if (nav && hero) nav.classList.toggle('visible', st > hero.offsetTop + hero.offsetHeight - 100);
+    if (floatCta) floatCta.classList.toggle('visible', st > hero.offsetHeight && st < dh - 200);
+    var current = '';
+    for (var i = sections.length - 1; i >= 0; i--) {
+      if (st >= sections[i].el.offsetTop - 200) { current = sections[i].el.id || ''; break; }
+    }
+    sections.forEach(function(s) {
+      var id = s.el.id || (s.el.querySelector('h2[id]') || {}).id || '';
+      s.link.classList.toggle('active', id === current);
+    });
+  }
+
+  window.addEventListener('scroll', function() {
+    if (!ticking) { requestAnimationFrame(function() { onScroll(); ticking = false; }); ticking = true; }
+  });
+  btt.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  document.addEventListener('click', function(e) {
+    var a = e.target.closest('a[href^="#"]');
+    if (a) { var t = document.querySelector(a.getAttribute('href')); if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }
+  });
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-in').forEach(function(el) { obs.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>

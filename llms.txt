@@ -1,0 +1,70 @@
+# Zora Network
+> Zora Network is an EVM-compatible Ethereum layer-2 optimistic rollup built with the OP Stack and designed for onchain media, NFTs, and creator-focused applications.
+
+## What is Zora Network
+Zora Network executes Ethereum-compatible transactions at lower cost while settling its state and publishing transaction data to Ethereum. It was launched by Zora for creator and media applications but is a general-purpose, permissionless smart-contract network. Unlike the Zora social app and Zora Protocol, which now primarily operate on Base, Zora Network is a distinct blockchain. The ZORA ERC-20 token also exists on Base and is not Zora Network’s native gas token.
+
+## How it works
+1. A user adds Zora Network to an EVM wallet and obtains bridged ETH for gas.
+2. The wallet signs locally; the dashboard or application never receives the private key.
+3. A sequencer orders transactions and produces approximately two-second L2 blocks, giving fast preliminary confirmations.
+4. Transaction batches and rollup state commitments are submitted to Ethereum, where OP Stack contracts handle deposits, withdrawals, and fault disputes.
+5. Native withdrawals to Ethereum become final after the seven-day dispute period; third-party liquidity bridges can provide faster transfers under separate trust assumptions.
+
+## Key facts
+- Network type: Ethereum layer-2 optimistic rollup and Optimism Superchain member.
+- Execution environment: EVM-compatible OP Stack.
+- Mainnet chain ID: 7777777.
+- Testnet: Zora Sepolia, chain ID 999999999.
+- Native gas asset: ETH; ZORA is not the network gas token.
+- Public mainnet RPC: https://rpc.zora.energy
+- Target block time: two seconds.
+- Data availability and settlement: Ethereum.
+- Common asset standards include ERC-20, ERC-721, and ERC-1155.
+- Security depends on Ethereum, OP Stack contracts and governance, the sequencer, correct fault-proof operation, wallet security, and application contracts.
+
+## Common questions
+### Is this dashboard custodial?
+No. It reads public blockchain data and does not hold funds or private keys. Any transaction must be authorized in the user’s wallet.
+
+### Is Zora Network the same as the Zora app or ZORA token?
+No. Zora Network is chain 7777777; the current Zora app and the ZORA ERC-20 token operate primarily on Base.
+
+### What fees do users pay?
+Users pay ETH for L2 execution and a share of the cost of publishing rollup data to Ethereum. Bridge providers may charge additional fees.
+
+### How long do transactions take?
+L2 transactions normally receive a sequencer confirmation within seconds. Ethereum-backed finality takes longer, and native L2-to-Ethereum withdrawals require a seven-day dispute period.
+
+### Which assets are supported?
+The network can host standard EVM tokens and NFTs. Bridge support varies by asset and route; users must verify the destination chain and token contract.
+
+### How do I start?
+Add chain ID 7777777 using the official RPC, bridge ETH to Zora, and retain enough ETH for gas. Verify every network, bridge, and contract address before signing.
+
+### What are the main risks?
+Risks include smart-contract bugs, sequencer interruption, delayed withdrawals, malicious tokens, bridge failures, incorrect approvals, phishing, and irreversible wallet transactions.
+
+## App
+- Dashboard: https://zora-network.github.io/
+- App: https://zora-network.github.io/dashboard/
+
+## Official resources
+Zora Network: https://zora.energy/
+Official bridge directory: https://bridge.zora.energy/
+Zora documentation: https://docs.zora.co/
+Zora support center: https://support.zora.co/
+Zora source code: https://github.com/ourzora
+OP Stack source code: https://github.com/ethereum-optimism/optimism
+OP Stack audit reports: https://docs.optimism.io/security-reviews
+Official X: https://x.com/zora
+
+## Data & references
+Zora Blockscout explorer: https://explorer.zora.energy/
+Optimism Superchain Registry: https://github.com/ethereum-optimism/superchain-registry
+Chainlist network entry: https://chainlist.org/chain/7777777
+DeFiLlama Zora chain: https://defillama.com/chain/zora
+CoinGecko Zora blockchain: https://www.coingecko.com/en/chains/zora-network
+Ethereum ERC-20 standard: https://eips.ethereum.org/EIPS/eip-20
+Ethereum ERC-721 standard: https://eips.ethereum.org/EIPS/eip-721
+Ethereum ERC-1155 standard: https://eips.ethereum.org/EIPS/eip-1155

@@ -1,299 +1,1310 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Zora Network — The creator network for onchain media</title>
-  <meta name="description" content="Zora Network is an Ethereum Layer 2 built with the OP Stack for bringing media and creator activity onchain.">
-  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
-  <meta name="theme-color" content="#eef0f3">
-  <link rel="canonical" href="https://zora-network.github.io/">
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="prefetch" href="dashboard/index.html">
-  <link rel="preconnect" href="https://defillama.com/" crossorigin>
-  <link rel="preconnect" href="https://coins.llama.fi" crossorigin>
-  <meta property="og:type" content="website"><meta property="og:url" content="https://zora-network.github.io/">
-  <meta property="og:title" content="Zora Network — The creator network for onchain media">
-  <meta property="og:description" content="Zora Network is an Ethereum Layer 2 built with the OP Stack for bringing media and creator activity onchain.">
-  <meta property="og:site_name" content="Zora Network dashboard"><meta property="og:image" content="https://zora-network.github.io/og-cover.png">
-  <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Zora Network — The creator network for onchain media"><meta name="twitter:description" content="Zora Network is an Ethereum Layer 2 built with the OP Stack for bringing media and creator activity onchain."><meta name="twitter:image" content="https://zora-network.github.io/og-cover.png">
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@graph":[
-      {"@type":"WebSite","@id":"https://zora-network.github.io/#website","url":"https://zora-network.github.io/","name":"Zora Network dashboard","inLanguage":"en-US"},
-      {"@type":"Thing","@id":"https://zora-network.github.io/#brand","name":"Zora Network",
-       "description":"Zora Network is an Ethereum Layer 2 built with the OP Stack for bringing media and creator activity onchain.",
-       "sameAs":["https://zora.co/", "https://docs.zora.co/", "https://github.com/ourzora", "https://x.com/zora"]},
-      {"@type":"WebPage","@id":"https://zora-network.github.io/#webpage","url":"https://zora-network.github.io/","name":"Zora Network \u2014 The creator network for onchain media","description":"Zora Network is an Ethereum Layer 2 built with the OP Stack for bringing media and creator activity onchain.","isPartOf":{"@id":"https://zora-network.github.io/#website"},"about":{"@id":"https://zora-network.github.io/#brand"},"mainEntity":{"@id":"https://zora-network.github.io/#brand"},"inLanguage":"en-US","mentions":[{"@type":"Thing","name":"Ethereum Layer 2","sameAs":"https://ethereum.org/layer-2/"},{"@type":"Thing","name":"OP Stack","sameAs":"https://docs.optimism.io/op-stack/protocol/getting-started"}]},
-      {"@type":"ItemList","@id":"https://zora-network.github.io/#resources","name":"Zora Network \u2014 resources & references","itemListElement":[{"@type":"ListItem","position":1,"name":"Official Zora Site","url":"https://zora.co/"},{"@type":"ListItem","position":2,"name":"Developer Docs","url":"https://docs.zora.co/"},{"@type":"ListItem","position":3,"name":"L2BEAT Profile","url":"https://l2beat.com/scaling/projects/zora/"},{"@type":"ListItem","position":4,"name":"GitHub Organization","url":"https://github.com/ourzora"},{"@type":"ListItem","position":5,"name":"DeFiLlama Zora","url":"https://defillama.com/chain/zora"},{"@type":"ListItem","position":6,"name":"Zora Explorer","url":"https://explorer.zora.energy/"},{"@type":"ListItem","position":7,"name":"Bridged Assets","url":"https://defillama.com/bridged/zora"},{"@type":"ListItem","position":8,"name":"Chainlist Profile","url":"https://chainlist.org/chain/7777777"},{"@type":"ListItem","position":9,"name":"Zora Bridge","url":"https://bridge.zora.energy/"},{"@type":"ListItem","position":10,"name":"Zora Protocol","url":"https://github.com/ourzora/zora-protocol"},{"@type":"ListItem","position":11,"name":"Network Subgraph","url":"https://github.com/ourzora/zora-network-subgraph"},{"@type":"ListItem","position":12,"name":"Superchain Registry","url":"https://github.com/ethereum-optimism/superchain-registry"},{"@type":"ListItem","position":13,"name":"Official Status Guide","url":"https://support.zora.co/en/articles/3084481"},{"@type":"ListItem","position":14,"name":"Terms of Service","url":"https://support.zora.co/en/articles/6171073"},{"@type":"ListItem","position":15,"name":"Verified Contracts","url":"https://explorer.zora.energy/verified-contracts"},{"@type":"ListItem","position":16,"name":"ZORA Token Audit","url":"https://github.com/ourzora/zora-token/blob/main/audit/Zora%20Token%20-%20Zellic%20Audit%20Report.pdf"}]}
-    ]
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zora Network — The Onchain Media L2 Explained</title>
+<meta name="description" content="Zora Network is an OP Stack Ethereum layer-2 built for creators, NFTs and onchain media. Learn how minting, ETH gas, protocol rewards and the ZORA token work together.">
+<link rel="canonical" href="https://zora-network.github.io/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Zora Network">
+<meta property="og:url" content="https://zora-network.github.io/">
+<meta property="og:image" content="https://zora-network.github.io/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Zora Network">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;600;700&family=Albert+Sans:wght@500;600;700&display=swap">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://zora-network.github.io/#website", "url": "https://zora-network.github.io/", "name": "Zora Network — The Onchain Media L2 Explained"}, {"@type": "WebPage", "@id": "https://zora-network.github.io/#webpage", "url": "https://zora-network.github.io/", "name": "Zora Network — The Onchain Media L2 Explained", "isPartOf": {"@id": "https://zora-network.github.io/#website"}, "description": "Zora Network is an OP Stack Ethereum layer-2 built for creators, NFTs and onchain media. Learn how minting, ETH gas, protocol rewards and the ZORA token work together.", "datePublished": "2026-10-09", "dateModified": "2026-10-09"}, {"@type": "SoftwareApplication", "name": "Zora Network", "applicationCategory": "FinanceApplication", "operatingSystem": "Web", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://zora-network.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Chains"}, {"@type": "ListItem", "position": 3, "name": "Zora Network"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is Zora Network?", "acceptedAnswer": {"@type": "Answer", "text": "It is an Ethereum layer-2 built on the OP Stack and focused on creators, NFTs and onchain media, where minting content costs a small ETH fee instead of full mainnet gas."}}, {"@type": "Question", "name": "What gas token does Zora Network use?", "acceptedAnswer": {"@type": "Answer", "text": "It uses ETH for gas, the same asset used across Ethereum and most other OP Stack chains, so there is no separate gas token to acquire."}}, {"@type": "Question", "name": "Is Zora Network part of the Superchain?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. It is an OP Stack chain and a member of the Superchain, the group of rollups that share standards and security upgrades with Optimism."}}, {"@type": "Question", "name": "What is the ZORA token used for?", "acceptedAnswer": {"@type": "Answer", "text": "ZORA is the network's native token. It sits alongside the ETH-denominated gas model and is distinct from protocol rewards, which pay creators and referrers automatically whenever content is minted."}}, {"@type": "Question", "name": "How do protocol rewards work on Zora Network?", "acceptedAnswer": {"@type": "Answer", "text": "Every mint splits a share of its value between the creator, the collector who referred the sale, and the platform that surfaced it, settled onchain at the moment of the mint."}}, {"@type": "Question", "name": "How do I bridge assets to Zora Network?", "acceptedAnswer": {"@type": "Answer", "text": "You deposit through the canonical bridge from Ethereum, which credits your balance within minutes; withdrawals take longer because they wait out the rollup's challenge window before releasing funds back on Ethereum."}}, {"@type": "Question", "name": "Who uses Zora Network?", "acceptedAnswer": {"@type": "Answer", "text": "Creators who want to mint media as onchain collectibles, collectors who discover and trade that work, and developers building social, marketplace or referral tools on top of the same mint contracts."}}]}]}</script>
+<style>
+:root{--bg:#F8FAFC;--surface:#FFFFFF;--text:#0C1620;--muted:#52606F;--accent:#111827;--accent-ink:#FFFFFF;--radius:16px;--display:"Albert Sans";--body:"Albert Sans"}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+  background: var(--bg);
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  min-width: 280px;
+  color: var(--text);
+  background: var(--bg);
+  font-family: var(--body);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-wrap: break-word;
+}
+::selection {
+  color: var(--accent-ink);
+  background: var(--accent);
+}
+a {
+  color: var(--accent);
+  text-decoration-thickness: .075em;
+  text-underline-offset: .2em;
+  transition: color .18s ease, background .18s ease, border-color .18s ease;
+}
+a:hover {
+  color: var(--text);
+}
+a:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 5px;
+  border-radius: calc(var(--radius) * .35);
+}
+img,
+svg,
+video {
+  max-width: 100%;
+  vertical-align: middle;
+}
+img,
+video {
+  height: auto;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  color: var(--text);
+  font-family: var(--display);
+  font-weight: 650;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+p,
+ul,
+ol,
+dl,
+figure,
+blockquote {
+  margin-top: 0;
+}
+[hidden] {
+  display: none !important;
+}
+.c614621 {
+  width: min(100% - 6rem, 1240px);
+  margin-inline: auto;
+}
+.c4fddb6 {
+  position: absolute;
+  z-index: 20;
+  top: 1rem;
+  left: 1rem;
+  padding: .75rem 1.15rem;
+  transform: translateY(-180%);
+  border-radius: var(--radius);
+  color: var(--accent-ink);
+  background: var(--accent);
+  font-weight: 600;
+}
+.c4fddb6:focus {
+  transform: translateY(0);
+}
+.c455d43 {
+  position: relative;
+  z-index: 1;
+  border-bottom: 1px solid color-mix(in srgb, var(--text) 10%, var(--bg));
+  background: var(--bg);
+}
+.cd0c0d4 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  min-height: 88px;
+  padding-block: 1rem;
+}
+.c2ecad3 {
+  display: inline-flex;
+  align-items: center;
+  gap: .75rem;
+  color: var(--text);
+  font-family: var(--display);
+  font-size: 1.2rem;
+  font-weight: 650;
+  letter-spacing: -.04em;
+}
+.c2de2c1 {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--surface));
+  border-radius: calc(var(--radius) * .55);
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, var(--surface));
+}
+.c2de2c1 svg {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.cb38b63 {
+  display: inline-flex;
+  align-items: center;
+  gap: .8rem;
+  padding: .5rem 0;
+  color: var(--text);
+  font-size: .9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.cb38b63:hover {
+  color: var(--accent);
+}
+.ca04419 {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 15%, var(--bg));
+  background:
+    radial-gradient(ellipse at 95% 12%, color-mix(in srgb, var(--accent) 14%, transparent), color-mix(in srgb, var(--accent) 0%, transparent) 62%),
+    linear-gradient(130deg, var(--surface), color-mix(in srgb, var(--accent) 5%, var(--bg)) 70%, var(--bg));
+}
+.ca04419::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 520px;
+  height: 520px;
+  right: -240px;
+  bottom: -310px;
+  border: 1px solid color-mix(in srgb, var(--accent) 15%, transparent);
+  border-radius: 50%;
+  box-shadow: 0 0 0 65px color-mix(in srgb, var(--accent) 3%, transparent), 0 0 0 130px color-mix(in srgb, var(--accent) 2%, transparent);
+  pointer-events: none;
+}
+.c3e7c98 {
+  padding-block: 1.6rem 5rem;
+}
+.c2fe025 {
+  margin-bottom: 3.8rem;
+  color: var(--muted);
+  font-size: .8rem;
+  line-height: 1.6;
+}
+.ce861de {
+  display: inline;
+  color: var(--muted);
+  font-family: var(--body);
+  font-size: inherit;
+  text-decoration: none;
+}
+.ce861de a,
+a.ce861de {
+  color: var(--muted);
+  text-decoration: none;
+}
+.ce861de a:hover,
+a.ce861de:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+.c2fe025 ol,
+.c2fe025 ul,
+ol.ce861de,
+ul.ce861de {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .45rem .7rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.c2fe025 li {
+  display: inline;
+}
+.c2fe025 [aria-current="page"] {
+  color: var(--text);
+}
+.ca74db2 {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .8rem;
+  margin-bottom: 1.35rem;
+  color: var(--accent);
+  font-size: .875rem;
+  font-weight: 600;
+}
+.cb898b1 {
+  padding-block: .3rem;
+}
+.c245769 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  max-width: 180px;
+  padding: .4rem .65rem;
+  border: 1px solid color-mix(in srgb, var(--text) 9%, var(--surface));
+  border-radius: calc(var(--radius) * .6);
+  background: var(--surface);
+  box-shadow: 0 3px 10px color-mix(in srgb, var(--text) 4%, transparent);
+  color: var(--text);
+  font-size: .8rem;
+  line-height: 1;
+}
+.c245769:empty {
+  display: none;
+}
+.c245769 img,
+.c245769 svg {
+  display: block;
+  width: auto;
+  max-width: 148px;
+  height: 24px;
+  object-fit: contain;
+}
+.ca04419 h1 {
+  max-width: 1050px;
+  margin: 0 0 1.5rem;
+  font-family: var(--display);
+  font-size: clamp(2.7rem, 5.7vw, 5.1rem);
+  font-weight: 600;
+  line-height: 1.06;
+  letter-spacing: -.055em;
+  overflow-wrap: anywhere;
+}
+.ca04419 h1 em {
+  color: var(--accent);
+  font-style: normal;
+}
+.ca04419 h1 a {
+  color: inherit;
+}
+.cef3cd4 {
+  max-width: 760px;
+  margin: 0 0 2.1rem;
+  color: var(--muted);
+  font-size: clamp(1.05rem, 1.6vw, 1.22rem);
+  line-height: 1.75;
+  text-wrap: pretty;
+}
+.ce04c2b {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.7rem;
+  min-height: 54px;
+  padding: .85rem 1.35rem;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  color: var(--accent-ink);
+  background: var(--accent);
+  box-shadow: 0 6px 18px color-mix(in srgb, var(--accent) 18%, transparent);
+  font-family: var(--body);
+  font-size: .95rem;
+  font-weight: 650;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: background .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+.ce04c2b:hover {
+  color: var(--accent-ink);
+  background: color-mix(in srgb, var(--accent) 92%, var(--text));
+  box-shadow: 0 9px 24px color-mix(in srgb, var(--accent) 24%, transparent);
+  transform: translateY(-2px);
+}
+.c1a705a {
+  font-family: var(--body);
+  font-size: 1.25em;
+  line-height: 1;
+}
+.c9e4f51 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin-block: 1.5rem 4.5rem;
+}
+.c4d47a8 {
+  min-width: 0;
+  padding: 1.2rem 1.35rem;
+  border: 1px solid color-mix(in srgb, var(--text) 9%, var(--surface));
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 0 3px 12px color-mix(in srgb, var(--text) 3%, transparent);
+}
+.c4d47a8 strong {
+  display: block;
+  margin-bottom: .2rem;
+  color: var(--text);
+  font-family: var(--display);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -.02em;
+}
+.c4d47a8 span {
+  display: block;
+  color: var(--muted);
+  font-size: .8rem;
+  line-height: 1.5;
+}
+.c0ad28d {
+  display: grid;
+  grid-template-columns: 235px minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(2.5rem, 5vw, 5rem);
+  padding-bottom: 4.5rem;
+}
+.c71a641 {
+  position: sticky;
+  top: 2rem;
+  min-width: 0;
+  max-height: calc(100dvh - 4rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--muted) 35%, var(--surface)) var(--surface);
+  padding: .3rem .75rem 1rem .25rem;
+}
+.cea605e {
+  margin: 0 0 1.1rem;
+  color: var(--text);
+  font-family: var(--display);
+  font-size: .95rem;
+  font-weight: 650;
+  letter-spacing: -.02em;
+}
+.c4e3b97 {
+  display: grid;
+  gap: .3rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.c4e3b97 li {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+.cd9bb42 {
+  position: relative;
+  display: block;
+  padding: .7rem .9rem .7rem 1.1rem;
+  border-inline-start: 2px solid color-mix(in srgb, var(--muted) 18%, var(--bg));
+  border-radius: 0 calc(var(--radius) * .55) calc(var(--radius) * .55) 0;
+  color: var(--muted);
+  font-family: var(--body);
+  font-size: .85rem;
+  font-weight: 450;
+  line-height: 1.5;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.cd9bb42:hover {
+  border-inline-start-color: color-mix(in srgb, var(--accent) 45%, var(--bg));
+  color: var(--text);
+  background: color-mix(in srgb, var(--accent) 5%, var(--bg));
+}
+.cd9bb42[aria-current="location"] {
+  border-inline-start-color: var(--accent);
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 9%, var(--bg));
+  font-weight: 650;
+}
+.c8b681a {
+  margin: 1.65rem 0 0;
+  padding: 1.2rem 0 0;
+  border-top: 1px solid color-mix(in srgb, var(--text) 10%, var(--bg));
+  color: var(--muted);
+  font-size: .78rem;
+  line-height: 1.65;
+}
+.c19ea65 {
+  min-width: 0;
+}
+.c091f17 {
+  padding: clamp(1.3rem, 3vw, 2.3rem);
+  margin-bottom: 3.75rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 18%, var(--surface));
+  border-top: 3px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 0 10px 35px color-mix(in srgb, var(--text) 5%, transparent);
+  scroll-margin-top: 2rem;
+}
+.c6fc3c4 {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: .5rem 1.5rem;
+  justify-content: space-between;
+  margin-bottom: 1.4rem;
+}
+.c6fc3c4 h2 {
+  margin: 0;
+  font-size: clamp(1.45rem, 2.3vw, 1.85rem);
+  letter-spacing: -.04em;
+}
+.c6fc3c4 p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .8rem;
+}
+.cb63580 {
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--muted) var(--surface);
+}
+.c5745c6 {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--text);
+  font-family: var(--body);
+  font-size: .925rem;
+  line-height: 1.6;
+  text-align: left;
+}
+.c5745c6 caption {
+  padding: 0 0 1rem;
+  color: var(--muted);
+  font-size: .85rem;
+  text-align: left;
+}
+.c5745c6 th,
+.c5745c6 td {
+  padding: 1.05rem .85rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--text) 9%, var(--surface));
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+.c5745c6 th {
+  width: 37%;
+  color: var(--muted);
+  font-weight: 500;
+}
+.c5745c6 thead th {
+  color: var(--text);
+  background: color-mix(in srgb, var(--accent) 5%, var(--surface));
+  font-weight: 650;
+}
+.c5745c6 td {
+  font-weight: 550;
+}
+.c5745c6 tr > :first-child {
+  padding-left: 0;
+}
+.c5745c6 tr > :last-child {
+  padding-right: 0;
+}
+.c5745c6 tbody:last-child tr:last-child > *,
+.c5745c6 > tr:last-child > * {
+  border-bottom: 0;
+}
+.c5745c6 td p:last-child,
+.c5745c6 th p:last-child {
+  margin-bottom: 0;
+}
+.c05a67a {
+  min-width: 0;
+}
+.c94d82f {
+  min-width: 0;
+  margin: 0 0 3.4rem;
+  scroll-margin-top: 2rem;
+}
+.c94d82f + .c94d82f {
+  padding-top: 2.8rem;
+  border-top: 1px solid color-mix(in srgb, var(--text) 11%, var(--bg));
+}
+.ca22357 {
+  margin: 0 0 1.25rem;
+  color: var(--text);
+  font-family: var(--display);
+  font-size: clamp(1.65rem, 2.8vw, 2.35rem);
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: -.045em;
+}
+.cfbc884 {
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 1rem;
+  line-height: 1.85;
+  overflow-wrap: anywhere;
+}
+.cfbc884 > :last-child {
+  margin-bottom: 0;
+}
+.cfbc884 p {
+  margin: 0 0 1.3rem;
+  text-wrap: pretty;
+}
+.cfbc884 h3 {
+  margin: 2rem 0 .9rem;
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -.025em;
+}
+.cfbc884 h4,
+.cfbc884 h5,
+.cfbc884 h6 {
+  margin: 1.6rem 0 .75rem;
+  font-size: 1.075rem;
+  line-height: 1.4;
+}
+.cfbc884 h3:first-child,
+.cfbc884 h4:first-child {
+  margin-top: 0;
+}
+.cfbc884 strong,
+.cb0c41c strong {
+  color: var(--text);
+  font-weight: 650;
+}
+.cfbc884 ul,
+.cfbc884 ol,
+.cb0c41c ul,
+.cb0c41c ol {
+  margin: 1.2rem 0 1.6rem;
+  padding-left: 1.5rem;
+}
+.cfbc884 li,
+.cb0c41c li {
+  padding-left: .4rem;
+  margin-block: .55rem;
+}
+.cfbc884 li::marker,
+.cb0c41c li::marker {
+  color: var(--accent);
+  font-weight: 600;
+}
+.cfbc884 li > ul,
+.cfbc884 li > ol {
+  margin-block: .5rem;
+}
+.cfbc884 li p {
+  margin-bottom: .6rem;
+}
+.cfbc884 blockquote {
+  margin: 1.8rem 0;
+  padding: 1.3rem 1.5rem;
+  border-inline-start: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: color-mix(in srgb, var(--accent) 6%, var(--surface));
+  color: var(--text);
+  font-size: 1.05rem;
+}
+.cfbc884 blockquote > :last-child {
+  margin-bottom: 0;
+}
+.cfbc884 blockquote cite {
+  display: block;
+  margin-top: .9rem;
+  color: var(--muted);
+  font-size: .85rem;
+  font-style: normal;
+}
+.cfbc884 table {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 1.7rem 0;
+  overflow-x: auto;
+  border: 1px solid color-mix(in srgb, var(--text) 12%, var(--surface));
+  border-radius: var(--radius);
+  border-spacing: 0;
+  background: var(--surface);
+  font-family: var(--body);
+  font-size: .875rem;
+  line-height: 1.65;
+  text-align: left;
+  scrollbar-width: thin;
+  scrollbar-color: var(--muted) var(--surface);
+}
+.cfbc884 table caption {
+  padding: .9rem 1rem;
+  color: var(--muted);
+  font-size: .82rem;
+  text-align: left;
+}
+.cfbc884 th,
+.cfbc884 td {
+  min-width: 125px;
+  padding: 1rem 1.15rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--text) 9%, var(--surface));
+  vertical-align: top;
+}
+.cfbc884 th {
+  color: var(--text);
+  background: color-mix(in srgb, var(--accent) 7%, var(--surface));
+  font-weight: 650;
+}
+.cfbc884 tbody tr:nth-child(even) {
+  background: color-mix(in srgb, var(--text) 2%, var(--surface));
+}
+.cfbc884 tbody:last-child tr:last-child > * {
+  border-bottom: 0;
+}
+.cfbc884 td > :last-child,
+.cfbc884 th > :last-child {
+  margin-bottom: 0;
+}
+.cfbc884 figure {
+  margin: 1.8rem 0;
+}
+.cfbc884 figure img {
+  display: block;
+  border-radius: var(--radius);
+}
+.cfbc884 figcaption {
+  margin-top: .7rem;
+  color: var(--muted);
+  font-size: .8rem;
+  line-height: 1.6;
+}
+.cfbc884 code,
+.cb0c41c code {
+  padding: .1em .35em;
+  border-radius: calc(var(--radius) * .25);
+  background: color-mix(in srgb, var(--accent) 7%, var(--surface));
+  color: var(--text);
+  font-family: var(--body);
+  font-size: .9em;
+}
+.cfbc884 pre {
+  overflow-x: auto;
+  padding: 1.2rem;
+  border: 1px solid color-mix(in srgb, var(--text) 10%, var(--surface));
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: .875rem;
+  line-height: 1.7;
+}
+.cfbc884 pre code {
+  padding: 0;
+  background: var(--surface);
+}
+.cfbc884 hr {
+  margin: 2rem 0;
+  border: 0;
+  border-top: 1px solid color-mix(in srgb, var(--text) 12%, var(--bg));
+}
+.cfbc884 dt {
+  margin-top: 1.1rem;
+  color: var(--text);
+  font-weight: 650;
+}
+.cfbc884 dd {
+  margin: .4rem 0 1rem;
+  color: var(--muted);
+}
+.c9b2787 {
+  padding-top: 2.75rem;
+  border-top: 1px solid color-mix(in srgb, var(--text) 11%, var(--bg));
+  scroll-margin-top: 2rem;
+}
+.c9b2787 > .ca22357 {
+  margin-bottom: 1.65rem;
+}
+.cfaf165 {
+  margin: 0 0 .8rem;
+  border: 1px solid color-mix(in srgb, var(--text) 11%, var(--surface));
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 0 3px 12px color-mix(in srgb, var(--text) 3%, transparent);
+  overflow: clip;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.cfaf165:hover {
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--surface));
+}
+.cfaf165[open] {
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--surface));
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--text) 4%, transparent);
+}
+.ca990c7 {
+  position: relative;
+  display: block;
+  padding: 1.35rem 3.8rem 1.35rem 1.4rem;
+  color: var(--text);
+  font-family: var(--display);
+  font-size: 1.025rem;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -.015em;
+  list-style: none;
+  cursor: pointer;
+}
+.ca990c7::-webkit-details-marker {
+  display: none;
+}
+.ca990c7::after {
+  content: "+";
+  position: absolute;
+  top: 1.3rem;
+  right: 1.35rem;
+  display: grid;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent) 9%, var(--surface));
+  color: var(--accent);
+  font-family: var(--body);
+  font-size: 1.15rem;
+  font-weight: 400;
+  line-height: 1;
+}
+.cfaf165[open] > .ca990c7::after {
+  content: "−";
+}
+.cfaf165 > .ca990c7:focus-visible {
+  outline-offset: -5px;
+}
+.cb0c41c {
+  padding: 0 1.4rem 1.45rem;
+  color: var(--muted);
+  font-family: var(--body);
+  font-size: .95rem;
+  line-height: 1.8;
+}
+.cb0c41c > :first-child {
+  margin-top: 0;
+}
+.cb0c41c > :last-child {
+  margin-bottom: 0;
+}
+.cb0c41c p {
+  margin-bottom: 1rem;
+}
+.c15abe2 {
+  padding-block: 3rem 3.6rem;
+  border-top: 1px solid color-mix(in srgb, var(--text) 10%, var(--bg));
+  background: color-mix(in srgb, var(--surface) 70%, var(--bg));
+  scroll-margin-top: 2rem;
+}
+.c0dc6cb {
+  display: grid;
+  grid-template-columns: 235px minmax(0, 1fr);
+  gap: clamp(2.5rem, 5vw, 5rem);
+}
+.c25bf8f h2 {
+  margin-bottom: .7rem;
+  font-size: 1.4rem;
+  letter-spacing: -.035em;
+}
+.c25bf8f p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .85rem;
+  line-height: 1.7;
+}
+.c5c661f {
+  min-width: 0;
+}
+.cff33c9 {
+  display: grid;
+  gap: .7rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--body);
+}
+.c5cf482 {
+  display: block;
+  min-width: 0;
+  padding: 1rem 1.2rem;
+  border: 1px solid color-mix(in srgb, var(--text) 9%, var(--surface));
+  border-radius: calc(var(--radius) * .75);
+  background: var(--surface);
+  color: var(--muted);
+  font-family: var(--body);
+  font-size: .875rem;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.c5cf482 a,
+a.c5cf482 {
+  color: var(--text);
+  text-decoration-color: color-mix(in srgb, var(--accent) 35%, var(--surface));
+  text-underline-offset: .25em;
+}
+.c5cf482 a:hover,
+a.c5cf482:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+.c5cf482 p {
+  margin: .4rem 0 0;
+}
+.c5cf482 small {
+  color: var(--muted);
+  font-size: .8rem;
+}
+.cab676a {
+  border-top: 1px solid color-mix(in srgb, var(--text) 10%, var(--bg));
+  background: var(--bg);
+}
+.cbf693d {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  min-height: 100px;
+  padding-block: 1.5rem;
+}
+.c612c9d {
+  color: var(--text);
+  font-family: var(--display);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -.025em;
+}
+.c4f13ad {
+  margin: 0;
+  color: var(--muted);
+  font-size: .8rem;
+}
+.c4f13ad span {
+  color: var(--text);
+}
+@media (min-width: 1500px) {
+  .c3e7c98 {
+    padding-bottom: 6rem;
   }
-  </script>
-  <style>
-:root{
-  --bg:#eef0f3; --bg-2:#e7eaef; --panel:#ffffff; --field:#f1f3f7; --field-2:#e9edf2;
-  --ink:#151a21; --text:#414954; --muted:#6a727d; --faint:#9aa2ad;
-  --line:rgba(20,26,33,.09); --line-2:rgba(20,26,33,.14);
-  --accent:#5B6CFF; --accent-ink:#242d6c; --accent-soft:rgba(91,108,255,0.13); --accent-glow:rgba(91,108,255,0.3);
-  --cta:#171a20; --cta-hover:#0a0c10; --cta-ink:#ffffff;
-  --shadow-card:0 1px 0 rgba(20,26,33,.02), 0 40px 80px -42px rgba(24,32,48,.40), 0 14px 30px -22px rgba(24,32,48,.24);
-  --shadow-pop:0 24px 60px -26px rgba(24,32,48,.38), 0 8px 20px -12px rgba(24,32,48,.22);
-  --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
-  --font: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --ease: cubic-bezier(0.22, 0.7, 0.24, 1);
-  color-scheme: light;
+  .c2fe025 {
+    margin-bottom: 4.5rem;
+  }
+  .c0ad28d {
+    gap: 5.5rem;
+  }
+  .c0dc6cb {
+    gap: 5.5rem;
+  }
 }
-html[data-theme="dark"]{
-  --bg:#0b0e13; --bg-2:#0e131b; --panel:#141a24; --field:#1b2230; --field-2:#232c3d;
-  --ink:#e9eef7; --text:#bcc5d6; --muted:#8b95a8; --faint:#606a7e;
-  --line:rgba(226,234,250,.10); --line-2:rgba(226,234,250,.18);
-  --accent:#8895ff; --accent-ink:#adb5ff; --accent-soft:rgba(136,149,255,0.16); --accent-glow:rgba(136,149,255,0.34);
-  --cta:#8895ff; --cta-hover:#7480db; --cta-ink:#12161c;
-  --shadow-card:0 30px 70px -34px rgba(0,0,0,.66), 0 6px 18px -10px rgba(0,0,0,.5);
-  --shadow-pop:0 24px 60px -26px rgba(0,0,0,.7);
-  color-scheme: dark;
+@media (max-width: 1050px) {
+  .c614621 {
+    width: calc(100% - 3rem);
+  }
+  .c0ad28d,
+  .c0dc6cb {
+    grid-template-columns: 190px minmax(0, 1fr);
+    gap: 2.25rem;
+  }
+  .c9e4f51 {
+    gap: .75rem;
+  }
+  .c4d47a8 {
+    padding: 1rem;
+  }
+  .cd9bb42 {
+    font-size: .8rem;
+  }
 }
-*{ box-sizing:border-box; }
-html{ height:100%; scroll-behavior:smooth; }
-@media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
-body{ margin:0; min-width:320px; height:100%; overflow:hidden; color:var(--text); background:var(--bg); font-family:var(--font); font-size:15px; line-height:1.55; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
-a{ color:inherit; text-decoration:none; }
-button{ font:inherit; color:inherit; background:none; border:none; cursor:pointer; }
-img{ display:block; max-width:100%; }
-h1,h2,h3,p{ margin:0; }
-a:focus-visible, button:focus-visible, summary:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; border-radius:10px; }
-.skip{ position:absolute; left:-999px; }
-.skip:focus{ left:12px; top:12px; z-index:120; padding:9px 15px; border-radius:10px; background:var(--cta); color:var(--cta-ink); font-weight:750; }
-.bg{ position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden; background:
-  radial-gradient(1100px 700px at 82% 116%, var(--bg-2), transparent 60%),
-  radial-gradient(900px 620px at -6% -8%, var(--bg-2), transparent 58%); }
-.bg::before{ content:""; position:absolute; right:-14%; bottom:-30%; width:min(92vw,940px); aspect-ratio:1; border-radius:50%;
-  background:repeating-radial-gradient(circle at center, transparent 0 86px, var(--line) 86px 87px); opacity:.5; mask:radial-gradient(circle at center, #000 62%, transparent 72%); }
-.bg::after{ content:""; position:absolute; left:-10%; top:-16%; width:min(70vw,560px); aspect-ratio:1; border-radius:50%;
-  background:repeating-radial-gradient(circle at center, transparent 0 64px, var(--line) 64px 65px); opacity:.4; mask:radial-gradient(circle at center, #000 60%, transparent 72%); }
-.topbar{ position:relative; z-index:70; flex:0 0 auto; display:flex; align-items:center; justify-content:space-between; gap:14px; padding:13px clamp(16px,3.4vw,34px);
-  background:color-mix(in srgb, var(--bg) 78%, transparent); backdrop-filter:saturate(140%) blur(12px); -webkit-backdrop-filter:saturate(140%) blur(12px); border-bottom:1px solid var(--line); }
-.tb-left{ display:flex; align-items:center; gap:12px; min-width:0; }
-.hamb{ display:grid; place-items:center; width:40px; height:40px; flex:0 0 auto; position:relative; border:1px solid var(--line-2); border-radius:12px; background:var(--panel); color:var(--ink); transition:border-color .15s var(--ease); }
-.hamb:hover{ border-color:var(--accent); }
-.hamb .bar{ position:absolute; left:11px; right:11px; height:2px; border-radius:2px; background:currentColor; transition:transform .24s var(--ease), opacity .18s var(--ease); }
-.hamb .bar:nth-child(1){ top:14px; } .hamb .bar:nth-child(2){ top:19px; } .hamb .bar:nth-child(3){ top:24px; }
-body.drawer-open .hamb .bar:nth-child(1){ transform:translateY(5px) rotate(45deg); }
-body.drawer-open .hamb .bar:nth-child(2){ opacity:0; }
-body.drawer-open .hamb .bar:nth-child(3){ transform:translateY(-5px) rotate(-45deg); }
-.brand{ display:flex; align-items:center; gap:11px; min-width:0; }
-.brand-logo{ width:34px; height:34px; flex:0 0 auto; display:grid; place-items:center; border-radius:10px; background:var(--panel); box-shadow:inset 0 0 0 1px var(--line-2); }
-.brand-logo img{ width:22px; height:22px; border-radius:50%; }
-.brand-name{ font-size:19px; font-weight:820; letter-spacing:-0.03em; color:var(--ink); line-height:1.1; white-space:nowrap; }
-.tb-right{ display:flex; align-items:center; gap:9px; }
-.theme-toggle{ display:inline-flex; align-items:center; gap:2px; padding:3px; border-radius:999px; background:var(--field); box-shadow:inset 0 0 0 1px var(--line); }
-.theme-toggle button{ display:grid; place-items:center; width:30px; height:30px; border-radius:999px; color:var(--muted); transition:color .15s var(--ease), background-color .15s var(--ease); }
-.theme-toggle button svg{ width:15px; height:15px; }
-.theme-toggle button[aria-pressed="true"]{ color:var(--ink); background:var(--panel); box-shadow:0 2px 8px -3px rgba(0,0,0,.28); }
-.btn-app{ display:inline-flex; align-items:center; gap:8px; padding:9px 15px; border-radius:11px; background:var(--panel); color:var(--ink); font-size:13.5px; font-weight:700; letter-spacing:-0.01em; box-shadow:inset 0 0 0 1px var(--line-2); transition:box-shadow .15s var(--ease), transform .15s var(--ease); white-space:nowrap; }
-.btn-app svg{ width:16px; height:16px; color:var(--muted); }
-.btn-app:hover{ box-shadow:inset 0 0 0 1px var(--accent); transform:translateY(-1px); }
-.btn-app:hover svg{ color:var(--accent-ink); }
-.scrim{ position:fixed; inset:0; z-index:80; background:rgba(10,14,17,.42); opacity:0; visibility:hidden; transition:opacity .28s var(--ease), visibility .28s var(--ease); }
-body.drawer-open .scrim{ opacity:1; visibility:visible; }
-.drawer{ position:fixed; z-index:90; top:0; left:0; height:100dvh; width:300px; max-width:86vw; display:flex; flex-direction:column; padding:16px 14px 16px; background:var(--panel); border-right:1px solid var(--line); box-shadow:var(--shadow-pop);
-  transform:translateX(-104%); transition:transform .3s var(--ease); overflow-y:auto; }
-body.drawer-open .drawer{ transform:translateX(0); }
-.drawer-head{ display:flex; align-items:center; justify-content:space-between; gap:10px; padding:2px 6px 8px; }
-.drawer-head .brand-name{ font-size:15px; }
-.drawer-close{ display:grid; place-items:center; width:34px; height:34px; border-radius:10px; color:var(--muted); }
-.drawer-close:hover{ color:var(--ink); background:var(--field); }
-.drawer-close svg{ width:17px; height:17px; }
-.nav-label{ margin:15px 12px 6px; font-size:10px; font-weight:750; letter-spacing:0.15em; text-transform:uppercase; color:var(--faint); }
-.nav-item{ display:flex; align-items:center; gap:12px; padding:9px 12px; border-radius:10px; color:var(--text); font-size:14px; font-weight:650; transition:color .15s var(--ease), background-color .15s var(--ease); }
-.nav-item .ni-ico{ width:18px; height:18px; flex:0 0 auto; color:var(--muted); }
-.nav-item.is-active{ color:var(--accent-ink); background:var(--accent-soft); }
-.nav-item.is-active .ni-ico{ color:var(--accent-ink); }
-.nav-item:hover{ color:var(--ink); background:var(--field); }
-.nav-group{ border-radius:10px; }
-.nav-group summary{ display:flex; align-items:center; gap:12px; padding:9px 12px; border-radius:10px; color:var(--text); font-size:14px; font-weight:650; cursor:pointer; list-style:none; transition:color .15s var(--ease), background-color .15s var(--ease); }
-.nav-group summary::-webkit-details-marker{ display:none; }
-.nav-group summary .ni-ico{ width:18px; height:18px; flex:0 0 auto; color:var(--muted); }
-.nav-group summary .chev{ width:15px; height:15px; margin-left:auto; color:var(--faint); transition:transform .2s var(--ease); }
-.nav-group summary:hover{ color:var(--ink); background:var(--field); }
-.nav-group[open] summary{ color:var(--ink); }
-.nav-group[open] summary .chev{ transform:rotate(180deg); }
-.nav-sub{ display:flex; flex-direction:column; gap:1px; padding:2px 0 8px 42px; }
-.nav-sub a{ display:flex; align-items:baseline; gap:7px; padding:6px 10px; border-radius:8px; color:var(--muted); font-size:12.5px; font-weight:550; transition:color .15s var(--ease), background-color .15s var(--ease); }
-.nav-sub a small{ color:var(--faint); font-size:10.5px; font-weight:500; }
-.nav-sub a:hover{ color:var(--accent-ink); background:var(--field); }
-.drawer-foot{ margin-top:auto; padding-top:13px; border-top:1px solid var(--line); }
-.disclose{ margin:8px 8px 0; font-size:11px; line-height:1.5; color:var(--muted); }
-.disclose strong{ color:var(--text); font-weight:750; }
-.fine{ margin:6px 8px 0; font-size:10.5px; line-height:1.45; color:var(--faint); }
-.app{ height:100dvh; display:flex; flex-direction:column; overflow:hidden; position:relative; z-index:1; }
-.wrap{ flex:1 1 auto; min-height:0; display:grid; place-items:center; overflow:hidden; }
-.stage{ width:100%; max-width:560px; max-height:100%; margin-inline:auto; padding:clamp(14px,3vh,36px) clamp(16px,3.4vw,26px); display:flex; flex-direction:column; align-items:center; text-align:center; }
-.lead{ margin:0 0 clamp(13px,2.2vh,20px); max-width:24ch; font-size:clamp(19px,2.5vw,27px); line-height:1.16; letter-spacing:-0.025em; font-weight:750; color:var(--ink); }
-.lead .hl{ color:var(--accent-ink); }
-.hero-chips{ display:flex; flex-wrap:wrap; justify-content:center; gap:9px; margin-top:clamp(13px,2.2vh,18px); }
-.hchip{ display:inline-flex; align-items:baseline; gap:7px; padding:8px 13px; border-radius:12px; background:var(--panel); box-shadow:inset 0 0 0 1px var(--line); font-size:12px; font-weight:600; color:var(--muted); transition:box-shadow .15s var(--ease), color .15s var(--ease); }
-.hchip b{ color:var(--ink); font-family:var(--mono); font-size:12.5px; font-weight:650; font-variant-numeric:tabular-nums; }
-.hchip .ext{ color:var(--faint); font-size:10px; }
-a.hchip:hover{ box-shadow:inset 0 0 0 1px var(--accent); color:var(--text); }
-a.hchip:hover .ext{ color:var(--accent-ink); }
-.swap-card{ position:relative; width:min(480px,100%); border-radius:28px; background:var(--panel); padding:clamp(20px,4vw,30px); text-align:left; box-shadow:var(--shadow-card); }
-.card-head{ display:flex; align-items:center; justify-content:space-between; margin:2px 4px 17px; }
-.card-title{ font-size:15px; font-weight:800; letter-spacing:-0.02em; color:var(--ink); }
-.badge{ display:inline-flex; align-items:center; gap:6px; padding:5px 11px; border-radius:999px; color:var(--accent-ink); background:var(--accent-soft); font-size:10px; font-weight:750; letter-spacing:0.07em; text-transform:uppercase; }
-.badge i{ width:6px; height:6px; border-radius:50%; background:var(--accent); }
-.field{ position:relative; padding:17px 18px 18px; border-radius:19px; background:var(--field); }
-.field + .field{ margin-top:6px; }
-.field-top{ display:flex; align-items:center; justify-content:space-between; }
-.field-label{ font-size:12px; font-weight:600; color:var(--muted); }
-.field-bal{ font-size:11px; font-weight:600; color:var(--faint); }
-.field-row{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:11px; min-width:0; }
-.amount{ min-width:0; }
-.amount b{ display:block; font-size:clamp(29px,5vw,38px); font-weight:750; line-height:1; letter-spacing:-0.02em; color:var(--ink); font-variant-numeric:tabular-nums; }
-.amount span{ display:block; margin-top:6px; font-size:11px; font-weight:600; color:var(--faint); }
-.token-pill{ display:inline-flex; align-items:center; gap:10px; flex:0 0 auto; padding:7px 12px 7px 8px; border-radius:999px; background:var(--panel); box-shadow:0 4px 14px -8px rgba(0,0,0,.4), inset 0 0 0 1px var(--line); transition:box-shadow .15s var(--ease); }
-.token-pill:hover{ box-shadow:0 6px 18px -8px rgba(0,0,0,.42), inset 0 0 0 1px var(--line-2); }
-.token-pill img{ width:26px; height:26px; flex:0 0 auto; border-radius:50%; }
-.token-meta{ display:flex; flex-direction:column; line-height:1.05; min-width:0; }
-.token-meta small{ font-size:9.5px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--faint); }
-.token-meta b{ font-size:15px; font-weight:800; letter-spacing:-0.01em; color:var(--ink); white-space:nowrap; }
-.token-pill .chev{ width:14px; height:14px; flex:0 0 auto; color:var(--faint); }
-.reverse{ position:relative; z-index:2; display:grid; place-items:center; width:40px; height:40px; margin:-14px auto; border:4px solid var(--panel); border-radius:13px; background:var(--field-2); color:var(--muted); box-shadow:0 6px 16px -8px rgba(0,0,0,.4); transition:transform .28s var(--ease), color .15s var(--ease), background-color .15s var(--ease); }
-.reverse svg{ width:16px; height:16px; }
-.reverse:hover{ color:var(--cta-ink); background:var(--accent); transform:rotate(180deg); }
-.details-btn{ display:flex; align-items:center; justify-content:center; gap:8px; width:100%; margin-top:12px; padding:12px; border-radius:14px; background:var(--field); color:var(--muted); font-size:12px; font-weight:750; letter-spacing:0.06em; text-transform:uppercase; transition:color .15s var(--ease), background-color .15s var(--ease); }
-.details-btn svg{ width:14px; height:14px; transition:transform .2s var(--ease); }
-.details-btn:hover{ color:var(--ink); }
-.details-btn[aria-expanded="true"] svg{ transform:rotate(180deg); }
-.details{ overflow:hidden; max-height:0; opacity:0; transition:max-height .3s var(--ease), opacity .22s var(--ease), margin .3s var(--ease); }
-.details.open{ max-height:280px; opacity:1; margin-top:6px; }
-.d-row{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding:11px 8px; border-bottom:1px solid var(--line); }
-.d-row:last-child{ border-bottom:0; }
-.d-row span{ font-size:12.5px; font-weight:600; color:var(--muted); }
-.d-row b{ font-size:12.5px; font-weight:700; color:var(--text); }
-.d-row b.ok{ color:var(--accent-ink); }
-.d-row b.mono{ font-family:var(--mono); font-size:11px; }
-.cta{ display:flex; align-items:center; justify-content:center; gap:8px; margin-top:12px; padding:16px; border-radius:16px; background:var(--cta); color:var(--cta-ink); font-size:15px; font-weight:800; letter-spacing:0.03em; text-transform:uppercase; box-shadow:0 16px 34px -16px rgba(0,0,0,.5); transition:background-color .15s var(--ease), transform .15s var(--ease); }
-.cta svg{ width:16px; height:16px; }
-.cta:hover{ background:var(--cta-hover); transform:translateY(-1px); }
-.card-note{ margin:13px 4px 0; font-size:11px; line-height:1.5; color:var(--faint); text-align:center; }
-.card-note a{ color:var(--muted); text-decoration:underline; text-decoration-color:var(--line-2); text-underline-offset:2px; }
-.card-note a:hover{ color:var(--accent-ink); }
-@media (max-width:560px){
-  .brand-name{ font-size:16px; } .btn-app span{ display:none; } .btn-app{ padding:9px 11px; }
-  .stage{ padding:12px 16px; }
-  .lead{ font-size:clamp(18px,5.5vw,24px); margin-bottom:14px; }
-  .swap-card{ padding:18px; } .field{ padding:14px 15px 15px; } .amount b{ font-size:29px; }
-  .hero-chips{ margin-top:12px; }
+@media (max-width: 760px) {
+  html {
+    scroll-padding-top: 1rem;
+  }
+  .cd0c0d4 {
+    min-height: 72px;
+  }
+  .c3e7c98 {
+    padding-block: 1.25rem 3.25rem;
+  }
+  .c2fe025 {
+    margin-bottom: 2.6rem;
+  }
+  .ca04419 h1 {
+    max-width: 100%;
+    font-size: clamp(2.45rem, 7.4vw, 3.6rem);
+    letter-spacing: -.045em;
+  }
+  .cef3cd4 {
+    font-size: 1.05rem;
+  }
+  .c9e4f51 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-block: 1.2rem 2.5rem;
+  }
+  .c0ad28d {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.3rem;
+    padding-bottom: 3rem;
+  }
+  .c71a641 {
+    position: static;
+    max-height: none;
+    padding: 1.2rem;
+    border: 1px solid color-mix(in srgb, var(--text) 10%, var(--surface));
+    border-radius: var(--radius);
+    background: var(--surface);
+  }
+  .cea605e {
+    margin-bottom: .8rem;
+  }
+  .c4e3b97 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .4rem .8rem;
+  }
+  .cd9bb42 {
+    height: 100%;
+    padding-block: .7rem;
+    font-size: .825rem;
+  }
+  .c8b681a {
+    display: none;
+  }
+  .c091f17 {
+    margin-bottom: 2.5rem;
+  }
+  .c94d82f {
+    margin-bottom: 2.6rem;
+  }
+  .c94d82f + .c94d82f {
+    padding-top: 2.2rem;
+  }
+  .c0dc6cb {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+  .c15abe2 {
+    padding-block: 2.5rem;
+  }
+  .c94d82f,
+  .c091f17,
+  .c9b2787,
+  .c15abe2 {
+    scroll-margin-top: 1rem;
+  }
 }
-@media (max-height:700px){ .lead{ font-size:clamp(17px,4.5vw,21px); margin-bottom:10px; } .hero-chips{ display:none; } }
-@media (max-height:600px){ .field{ padding:12px 15px 13px; } .amount b{ font-size:26px; } .details-btn{ margin-top:8px; padding:9px; } .cta{ padding:14px; margin-top:8px; } }
-@media (prefers-reduced-motion: reduce){ *{ transition:none !important; } }
-.stage.is-hero{ max-width:780px; }
-.hero{ display:flex; flex-direction:column; align-items:center; text-align:center; }
-.hero-h2{ margin:0; max-width:17ch; font-size:clamp(31px,5.8vw,56px); line-height:1.04; letter-spacing:-0.035em; font-weight:830; color:var(--ink); }
-.hero-h2 .hl{ color:var(--accent-ink); }
-.hero-sub{ margin:clamp(16px,2.8vh,23px) auto 0; max-width:54ch; font-size:clamp(15px,1.65vw,18px); line-height:1.58; color:var(--muted); font-weight:450; }
-.hero-cta{ display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:12px; margin-top:clamp(22px,3.6vh,32px); }
-.hero-cta .cta{ margin-top:0; text-transform:none; letter-spacing:0.005em; padding:15px 26px; font-size:15px; border-radius:14px; }
-.hero-cta .cta-ghost{ background:var(--panel); color:var(--ink); box-shadow:inset 0 0 0 1px var(--line-2); }
-.hero-cta .cta-ghost:hover{ background:var(--field); box-shadow:inset 0 0 0 1px var(--accent); transform:translateY(-1px); }
-@media (max-width:560px){ .hero-cta{ flex-direction:column; width:100%; max-width:340px; } .hero-cta .cta{ width:100%; } }
-@media (max-height:640px){ .hero-sub{ font-size:14px; margin-top:12px; } .hero-chips{ display:none; } }
-  </style>
-  <script>document.documentElement.classList.add('js')</script>
+@media (max-width: 440px) {
+  .c614621 {
+    width: calc(100% - 2rem);
+  }
+  .cd0c0d4 {
+    gap: 1rem;
+  }
+  .c2ecad3 {
+    gap: .5rem;
+    font-size: 1.05rem;
+  }
+  .cb38b63 {
+    gap: .45rem;
+    font-size: .8rem;
+  }
+  .ca74db2 {
+    gap: .65rem;
+    margin-bottom: 1.1rem;
+  }
+  .ca04419 h1 {
+    font-size: 2.5rem;
+  }
+  .ce04c2b {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .c4d47a8 {
+    padding: .9rem;
+  }
+  .c4d47a8 strong {
+    font-size: .9rem;
+  }
+  .c4d47a8 span {
+    font-size: .75rem;
+  }
+  .c4e3b97 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .c091f17 {
+    padding: 1.15rem;
+  }
+  .c5745c6 {
+    font-size: .85rem;
+  }
+  .c5745c6 th,
+  .c5745c6 td {
+    padding-block: .9rem;
+    padding-inline: .5rem;
+  }
+  .cfbc884 {
+    font-size: .95rem;
+    line-height: 1.8;
+  }
+  .cfbc884 blockquote {
+    padding: 1rem 1.1rem;
+  }
+  .ca990c7 {
+    padding: 1.1rem 3rem 1.1rem 1.1rem;
+    font-size: .95rem;
+  }
+  .ca990c7::after {
+    top: 1.1rem;
+    right: .9rem;
+  }
+  .cb0c41c {
+    padding: 0 1.1rem 1.2rem;
+    font-size: .9rem;
+  }
+  .cbf693d {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: .6rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+  .ce04c2b:hover {
+    transform: none;
+  }
+}
+@media print {
+  body {
+    background: var(--surface);
+    font-size: 10pt;
+  }
+  .c614621 {
+    width: 100%;
+  }
+  .c455d43,
+  .c4fddb6,
+  .ce04c2b,
+  .c71a641,
+  .ca04419::after {
+    display: none;
+  }
+  .ca04419 {
+    background: var(--surface);
+  }
+  .c3e7c98 {
+    padding-block: 1rem 2rem;
+  }
+  .c2fe025 {
+    margin-bottom: 1.5rem;
+  }
+  .ca04419 h1 {
+    font-size: 32pt;
+  }
+  .c9e4f51 {
+    margin-bottom: 2rem;
+  }
+  .c0ad28d,
+  .c0dc6cb {
+    display: block;
+  }
+  .c091f17,
+  .c4d47a8,
+  .cfaf165 {
+    box-shadow: none;
+  }
+  .ca22357,
+  .cfbc884 h3 {
+    break-after: avoid;
+  }
+  .cfaf165,
+  .c5cf482,
+  .cfbc884 tr {
+    break-inside: avoid;
+  }
+  .c25bf8f {
+    margin-bottom: 1rem;
+  }
+}
+</style>
 </head>
 <body>
-  <a class="skip" href="#route-preview">Skip to preview</a>
-  <div class="bg" aria-hidden="true"></div>
-
-  <div class="app">
-  <header class="topbar">
-    <div class="tb-left">
-      <button class="hamb" type="button" id="hamb" aria-label="Open navigation" aria-controls="drawer" aria-expanded="false"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
-      <div class="brand"><span class="brand-logo"><img src="favicon.png" width="22" height="22" alt="Zora Network logo"></span><h1 class="brand-name">Zora Network</h1></div>
+<a class="c4fddb6" href="#guide-main">Skip to guide</a>
+<header class="c455d43">
+  <div class="c614621 cd0c0d4">
+    <div class="c2ecad3">
+      <span class="c2de2c1" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5.5h6a3 3 0 0 1 2 1 3 3 0 0 1 2-1h6v14h-6a3 3 0 0 0-2 1 3 3 0 0 0-2-1H4zM12 6.5v14M7 9h2M15 9h2M7 12h2M15 12h2"/></svg></span>
+      <span>The guide</span>
     </div>
-    <div class="tb-right">
-      <div class="theme-toggle" role="group" aria-label="Color theme">
-        <button type="button" id="theme-light" aria-pressed="true" aria-label="Light theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"/></svg></button>
-        <button type="button" id="theme-dark" aria-pressed="false" aria-label="Dark theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a6.5 6.5 0 1 0 10.5 10.5z"/></svg></button>
-      </div>
-      <a class="btn-app" href="dashboard/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M16 11h2"/></svg><span>Open app</span></a>
-    </div>
-  </header>
-
-  <div class="scrim" id="scrim" tabindex="-1"></div>
-  <aside class="drawer" id="drawer" aria-label="Primary" aria-hidden="true">
-    <div class="drawer-head">
-      <div class="brand"><span class="brand-logo"><img src="favicon.png" width="22" height="22" alt=""></span><span class="brand-name">Zora Network</span></div>
-      <button class="drawer-close" type="button" id="drawer-close" aria-label="Close navigation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-    </div>
-    <nav aria-label="Sections">
-      <p class="nav-label">Bridge</p>
-      <a class="nav-item is-active" href="#route-preview" aria-current="page"><svg class="ni-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 10h11l-3-3M17 14H6l3 3"/></svg>Route preview</a>
-      <p class="nav-label">Understand</p>
-      <details class="nav-group" open><summary><svg class="ni-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 5h10a3 3 0 0 1 3 3v11a2 2 0 0 0-2-2H4zM20 5h-1a3 3 0 0 0-3 3v11a2 2 0 0 1 2-2h2z"/></svg>Know the network<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><div class="nav-sub"><a href="https://zora.co/" target="_blank" rel="noopener noreferrer">Official Zora Site <small>Primary Zora destination</small></a><a href="https://docs.zora.co/" target="_blank" rel="noopener noreferrer">Developer Docs <small>Official developer documentation</small></a><a href="https://l2beat.com/scaling/projects/zora/" target="_blank" rel="noopener noreferrer">L2BEAT Profile <small>Rollup architecture and risks</small></a><a href="https://github.com/ourzora" target="_blank" rel="noopener noreferrer">GitHub Organization <small>Official open-source repositories</small></a></div></details>
-      <p class="nav-label">Markets &amp; data</p>
-      <details class="nav-group"><summary><svg class="ni-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 5h10a3 3 0 0 1 3 3v11a2 2 0 0 0-2-2H4zM20 5h-1a3 3 0 0 0-3 3v11a2 2 0 0 1 2-2h2z"/></svg>Track network activity<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><div class="nav-sub"><a href="https://defillama.com/chain/zora" target="_blank" rel="noopener noreferrer">DeFiLlama Zora <small>Chain TVL and flows</small></a><a href="https://explorer.zora.energy/" target="_blank" rel="noopener noreferrer">Zora Explorer <small>Blocks transactions contracts</small></a><a href="https://defillama.com/bridged/zora" target="_blank" rel="noopener noreferrer">Bridged Assets <small>Cross-chain asset totals</small></a><a href="https://chainlist.org/chain/7777777" target="_blank" rel="noopener noreferrer">Chainlist Profile <small>RPC and chain metadata</small></a></div></details>
-      <p class="nav-label">Guides</p>
-      <details class="nav-group"><summary><svg class="ni-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 5h10a3 3 0 0 1 3 3v11a2 2 0 0 0-2-2H4zM20 5h-1a3 3 0 0 0-3 3v11a2 2 0 0 1 2-2h2z"/></svg>Build and move assets<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><div class="nav-sub"><a href="https://bridge.zora.energy/" target="_blank" rel="noopener noreferrer">Zora Bridge <small>Official asset bridge</small></a><a href="https://github.com/ourzora/zora-protocol" target="_blank" rel="noopener noreferrer">Zora Protocol <small>Contracts SDK and deployments</small></a><a href="https://github.com/ourzora/zora-network-subgraph" target="_blank" rel="noopener noreferrer">Network Subgraph <small>Indexed network data</small></a><a href="https://github.com/ethereum-optimism/superchain-registry" target="_blank" rel="noopener noreferrer">Superchain Registry <small>Canonical OP chain metadata</small></a></div></details>
-      <p class="nav-label">Safety</p>
-      <details class="nav-group"><summary><svg class="ni-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 5h10a3 3 0 0 1 3 3v11a2 2 0 0 0-2-2H4zM20 5h-1a3 3 0 0 0-3 3v11a2 2 0 0 1 2-2h2z"/></svg>Verify before transacting<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><div class="nav-sub"><a href="https://support.zora.co/en/articles/3084481" target="_blank" rel="noopener noreferrer">Official Status Guide <small>Check service availability</small></a><a href="https://support.zora.co/en/articles/6171073" target="_blank" rel="noopener noreferrer">Terms of Service <small>Network bridge and custody</small></a><a href="https://explorer.zora.energy/verified-contracts" target="_blank" rel="noopener noreferrer">Verified Contracts <small>Explorer-verified contract code</small></a><a href="https://github.com/ourzora/zora-token/blob/main/audit/Zora%20Token%20-%20Zellic%20Audit%20Report.pdf" target="_blank" rel="noopener noreferrer">ZORA Token Audit <small>Independent token contract review</small></a></div></details>
+    <a class="cb38b63" href="dashboard/">Open app <span class="c1a705a" aria-hidden="true">↗</span></a>
+  </div>
+</header>
+<section class="ca04419" aria-labelledby="guide-title">
+  <div class="c614621 c3e7c98">
+    <nav class="c2fe025" aria-label="Breadcrumb"><nav class="ce861de" aria-label="Breadcrumb"><a href="dashboard/">Home</a> <span>/</span> <span>Chains</span> <span>/</span> <span>Zora Network</span></nav></nav>
+    <div class="ca74db2"><span class="cb898b1">A closer look</span><span class="c245769"><img src="assets/tokens/eth.svg" alt="Ethereum" width="28" height="28"></span></div>
+    <h1 id="guide-title">Zora <em>Network</em>.</h1>
+    <p class="cef3cd4">Zora Network is a layer-2 built on the OP Stack that treats minting, collecting and sharing onchain media as everyday actions instead of expensive ones. It inherits Ethereum's security while running as part of the Optimism Superchain, which keeps transaction costs low enough that a single post, image or song can become a tradable onchain object without a meaningful gas bill. Gas is paid in ETH, creators and collectors interact through the same wallets they already use, and the network's protocol rewards route a share of every mint back to the people who made and shared the work.</p>
+    <a class="ce04c2b" href="dashboard/">Open dashboard <span class="c1a705a" aria-hidden="true">↗</span></a>
+  </div>
+</section>
+<div class="c614621">
+  <div class="c9e4f51" aria-label="Guide highlights">
+    <div class="c4d47a8"><strong>Key facts</strong><span>The essentials at a glance</span></div>
+    <div class="c4d47a8"><strong>In depth</strong><span>Explore the details</span></div>
+    <div class="c4d47a8"><strong>Questions answered</strong><span>Find a little more clarity</span></div>
+    <div class="c4d47a8"><strong>Sources</strong><span>Follow the references</span></div>
+  </div>
+  <div class="c0ad28d">
+    <nav class="c71a641" aria-labelledby="toc-title">
+      <h2 class="cea605e" id="toc-title">On this page</h2>
+      <ul class="c4e3b97" id="toc-list">
+        <li><a class="cd9bb42" href="#key-facts">Key facts</a></li>
+        <li><a class="cd9bb42" href="#guide-sections" data-sections-link>In depth</a></li>
+        <li><a class="cd9bb42" href="#questions">Questions &amp; answers</a></li>
+        <li><a class="cd9bb42" href="#sources">Sources</a></li>
+      </ul>
+      <p class="c8b681a">Read from the beginning, or jump to the details you need.</p>
     </nav>
-    <div class="drawer-foot">
-      <p class="disclose"><strong>Independent dashboard.</strong> Not affiliated with any protocol or issuer named here.</p>
-      <p class="fine">Live figures come from public third-party sources and change. Educational reference only.</p>
-    </div>
-  </aside>
-
-  <div class="wrap">
-    <main class="stage is-hero">
-      <div class="hero" id="app">
-        <h2 class="hero-h2">The <span class="hl">creator network</span> for onchain media</h2>
-        <p class="hero-sub">Built on the OP Stack, Zora Network gives creators and collectors a lower-cost environment for publishing and transacting onchain media.</p>
-        <div class="hero-cta">
-          <a class="cta cta-primary" href="dashboard/" target="_blank" rel="noopener noreferrer">Enter Dashboard <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
-          <a class="cta cta-ghost" href="https://docs.zora.co/" target="_blank" rel="noopener noreferrer">Read the docs</a>
-        </div>
-      </div>
-      <div class="hero-chips">
-        <a class="hchip" href="https://defillama.com/chain/zora" target="_blank" rel="noopener noreferrer">Chain TVL <b id="sig0">—</b> <span class="ext" aria-hidden="true">↗</span></a>
-          <a class="hchip" href="https://explorer.zora.energy/" target="_blank" rel="noopener noreferrer">Network Gas <b id="sig1">—</b> <span class="ext" aria-hidden="true">↗</span></a>
-          <a class="hchip" href="https://chainlist.org/chain/7777777" target="_blank" rel="noopener noreferrer">Chain ID <b>7777777</b> <span class="ext" aria-hidden="true">↗</span></a>
-      </div>
+    <main class="c19ea65" id="guide-main" tabindex="-1">
+      <section class="c091f17" id="key-facts" aria-labelledby="facts-title">
+        <div class="c6fc3c4"><h2 id="facts-title">Key facts</h2><p>At a glance</p></div>
+        <div class="cb63580"><table class="c5745c6"><tbody><tr><th scope="row">Network type</th><td>OP Stack Ethereum layer-2</td></tr>
+<tr><th scope="row">Ecosystem</th><td>Optimism Superchain member</td></tr>
+<tr><th scope="row">Gas token</th><td>ETH</td></tr>
+<tr><th scope="row">Primary use</th><td>Minting, NFTs, onchain media</td></tr>
+<tr><th scope="row">Native token</th><td>ZORA</td></tr>
+<tr><th scope="row">Custody</th><td>Self-custody — standard L2 bridging</td></tr></tbody></table></div>
+      </section>
+      <div class="c05a67a" id="guide-sections"><section class="c94d82f"><h2 class="ca22357">What Is Zora Network</h2><div class="cfbc884"><strong>Zora Network is an Ethereum layer-2 built on the OP Stack specifically for creators, collectors and onchain media, where minting a post, image or piece of music is cheap enough to do casually.</strong> Rather than positioning itself as a general-purpose chain for every kind of app, Zora Network narrows its focus to the act of turning content into an onchain object anyone can own, trade or build on top of. That focus shapes everything from its fee design to the protocol-level rewards that pay creators automatically whenever their work is minted or referred further.<h3>Built on the OP Stack</h3>The network runs on the OP Stack, the open-source rollup framework also used by Optimism and several other chains, which handles execution off Ethereum while still posting the data needed to reconstruct the chain's state back to Ethereum. Using a shared, audited stack means it benefits from the same rollup security model and the same <a href="https://docs.optimism.io/" rel="nofollow noopener" target="_blank">Optimism documentation</a> that describes how OP Stack chains settle and finalize.<h3>Part of the Superchain</h3>It is also a member of the broader Superchain, a group of OP Stack chains designed to share standards, security upgrades and, eventually, liquidity and messaging. Belonging to that group matters practically: it is part of why tools, bridges and wallets that already support one OP Stack chain tend to support this one with little extra work.<h3>ETH stays the gas token</h3>Unlike some layer-2s that introduce a separate gas token, this chain keeps ETH as the asset you spend on every transaction. That choice removes a step for newcomers — there is no second token to acquire before you can mint, collect or transfer — and it keeps the fee market anchored to the same asset the rest of the Ethereum ecosystem already holds.</div></section>
+<section class="c94d82f"><h2 class="ca22357">The ZORA Token and Protocol Rewards on Zora Network</h2><div class="cfbc884">ZORA is the network's native token, layered on top of the ETH-denominated gas model rather than replacing it. Protocol rewards are the more distinctive mechanic: every time content is minted, a portion of that mint's value is split automatically between the creator, the collector who referred the sale, and the platform that surfaced it, settled onchain without a separate claim process. That structure turns sharing into an incentive rather than an afterthought — a collector who posts a link that leads to more mints earns a cut of them, and the creator is paid regardless of which app or feed the mint happened through, since the reward logic lives in the protocol and not in any single interface.</div></section>
+<section class="c94d82f"><h2 class="ca22357">Minting and Creating on Zora Network</h2><div class="cfbc884">Minting on the network turns a piece of content — an image, a video, a song, a post — into an onchain token that a collector can hold, trade or display, and the process is deliberately close to posting on a regular app. A creator uploads the content, sets terms such as price and supply, and the mint contract handles the rest.<h3>What creators control</h3>Creators decide whether a mint is free or priced, time-limited or open-ended, and whether it has a fixed supply or stays open to new collectors indefinitely. Because these settings live in the contract rather than in a platform's backend, the same mint behaves identically no matter which front end a collector uses to view it.<h3>What collectors receive</h3>A collector who mints receives an onchain token tied to that specific piece of content, viewable in any wallet or marketplace that reads the chain, and tradable afterward the same way any other NFT is. The low cost of minting means collecting is not reserved for high-value pieces — it works just as well for everyday posts as for limited editions.</div></section>
+<section class="c94d82f"><h2 class="ca22357">Fees and Transaction Speed</h2><div class="cfbc884">Because the network posts its transaction data through the OP Stack's rollup design rather than writing everything directly to Ethereum mainnet, everyday activity settles quickly and at a small fraction of mainnet cost. The table below summarizes what to expect for the three actions most people perform.<table><thead><tr><th>Action</th><th>What you pay</th><th>Typical speed</th></tr></thead><tbody><tr><td>Minting content</td><td>Small ETH gas fee</td><td>Seconds</td></tr><tr><td>Collecting / trading</td><td>Small ETH gas fee</td><td>Seconds</td></tr><tr><td>Bridging to or from Ethereum</td><td>Ethereum gas, plus the exit window on withdrawals</td><td>Minutes in, longer out</td></tr></tbody></table></div></section>
+<section class="c94d82f"><h2 class="ca22357">Creators, Collectors and the Zora Network Ecosystem</h2><div class="cfbc884">This ecosystem is built around a simple loop: creators mint, collectors discover and collect, and protocol rewards pay both sides for participating. A handful of patterns recur across the apps and tools built on top of it.<ul><li>Social and media apps that let anyone turn a post directly into a mintable onchain collectible.</li><li>Marketplaces and explorers where collectors browse, buy and resell items minted on the network.</li><li>Referral-driven discovery, where sharing a mint link earns a reward if it leads to further mints.</li><li>Creator storefronts that bundle multiple pieces of work into one onchain profile.</li><li>Developer tooling for building new mint formats on top of the same underlying contracts.</li></ul></div></section>
+<section class="c94d82f"><h2 class="ca22357">Security and Bridging to Zora Network</h2><div class="cfbc884">Moving assets onto the network follows the same pattern as other OP Stack chains: you keep your own keys the entire time, and the bridge contract — not a custodian — holds the deposited funds until they are credited on the other side.<h3>How bridging works</h3>A deposit is confirmed on Ethereum and then credited on the rollup within minutes; a withdrawal has to wait out the network's challenge window before funds release back on Ethereum, which is the standard security delay on any OP Stack rollup rather than something specific to this chain. You can verify any transaction's status directly on the <a href="https://explorer.zora.energy/" rel="nofollow noopener" target="_blank">Zora explorer</a>.<h3>What to check before you sign</h3>Confirm the contract address a mint or bridge transaction points to, keep approvals limited to the amount you intend to spend, and never share your seed phrase — no legitimate app on this network will ever ask for it. The <a href="https://docs.zora.co/" rel="nofollow noopener" target="_blank">Zora docs</a> walk through the exact steps for minting, collecting and bridging if you want the reference version of any flow described here.</div></section>
+<section class="c94d82f"><h2 class="ca22357">How It Compares to Other Layer-2s</h2><div class="cfbc884">General-purpose layer-2s optimize for breadth — supporting any kind of app with no particular lean toward content or creators. It instead optimizes for one job: making it cheap and fast to turn media into something ownable. That narrower focus shows up in protocol rewards, which are not a generic feature of <a href="https://ethereum.org/en/layer-2/" rel="nofollow noopener" target="_blank">layer-2 scaling</a> but a network-specific mechanic built directly into how mints settle. If you want a chain for creator and NFT activity specifically, that focus is the main reason to pick Zora Network over a broader L2; if you need a chain for unrelated DeFi or gaming activity, a more general-purpose rollup — reviewed independently on <a href="https://l2beat.com/scaling/projects/zora" rel="nofollow noopener" target="_blank">L2BEAT</a> — may fit better.</div></section></div>
+      <section class="c9b2787" id="questions" aria-labelledby="questions-title">
+        <h2 class="ca22357" id="questions-title">Questions &amp; answers</h2>
+        <details class="cfaf165"><summary class="ca990c7">What is Zora Network?</summary><div class="cb0c41c">It is an Ethereum layer-2 built on the OP Stack and focused on creators, NFTs and onchain media, where minting content costs a small ETH fee instead of full mainnet gas.</div></details>
+<details class="cfaf165"><summary class="ca990c7">What gas token does Zora Network use?</summary><div class="cb0c41c">It uses ETH for gas, the same asset used across Ethereum and most other OP Stack chains, so there is no separate gas token to acquire.</div></details>
+<details class="cfaf165"><summary class="ca990c7">Is Zora Network part of the Superchain?</summary><div class="cb0c41c">Yes. It is an OP Stack chain and a member of the Superchain, the group of rollups that share standards and security upgrades with Optimism.</div></details>
+<details class="cfaf165"><summary class="ca990c7">What is the ZORA token used for?</summary><div class="cb0c41c">ZORA is the network's native token. It sits alongside the ETH-denominated gas model and is distinct from protocol rewards, which pay creators and referrers automatically whenever content is minted.</div></details>
+<details class="cfaf165"><summary class="ca990c7">How do protocol rewards work on Zora Network?</summary><div class="cb0c41c">Every mint splits a share of its value between the creator, the collector who referred the sale, and the platform that surfaced it, settled onchain at the moment of the mint.</div></details>
+<details class="cfaf165"><summary class="ca990c7">How do I bridge assets to Zora Network?</summary><div class="cb0c41c">You deposit through the canonical bridge from Ethereum, which credits your balance within minutes; withdrawals take longer because they wait out the rollup's challenge window before releasing funds back on Ethereum.</div></details>
+<details class="cfaf165"><summary class="ca990c7">Who uses Zora Network?</summary><div class="cb0c41c">Creators who want to mint media as onchain collectibles, collectors who discover and trade that work, and developers building social, marketplace or referral tools on top of the same mint contracts.</div></details>
+      </section>
     </main>
   </div>
+</div>
+<section class="c15abe2" id="sources" aria-labelledby="sources-title">
+  <div class="c614621 c0dc6cb">
+    <div class="c25bf8f"><h2 id="sources-title">Sources</h2><p>References for further reading.</p></div>
+    <div class="c5c661f"><ul class="cff33c9"><li><a class="c5cf482" href="https://docs.zora.co/" rel="nofollow noopener" target="_blank">Zora documentation</a></li>
+<li><a class="c5cf482" href="https://explorer.zora.energy/" rel="nofollow noopener" target="_blank">Zora explorer</a></li>
+<li><a class="c5cf482" href="https://l2beat.com/scaling/projects/zora" rel="nofollow noopener" target="_blank">Zora on L2BEAT</a></li>
+<li><a class="c5cf482" href="https://docs.optimism.io/" rel="nofollow noopener" target="_blank">Optimism documentation</a></li></ul></div>
   </div>
-
-  <script>
-  (function(){
-    "use strict";
-    var $=function(id){ return document.getElementById(id); };
-    var root=document.documentElement, tl=$("theme-light"), td=$("theme-dark");
-    function applyTheme(t){ if(t==="dark"){ root.setAttribute("data-theme","dark"); } else { root.removeAttribute("data-theme"); } if(tl) tl.setAttribute("aria-pressed", String(t!=="dark")); if(td) td.setAttribute("aria-pressed", String(t==="dark")); }
-    var saved=null; try{ saved=localStorage.getItem("zoranetwor-theme"); }catch(e){}
-    if(saved) applyTheme(saved);
-    function setTheme(t){ applyTheme(t); try{ localStorage.setItem("zoranetwor-theme", t); }catch(e){} }
-    if(tl) tl.addEventListener("click", function(){ setTheme("light"); });
-    if(td) td.addEventListener("click", function(){ setTheme("dark"); });
-    var body=document.body, hamb=$("hamb"), scrim=$("scrim"), drawer=$("drawer"), dclose=$("drawer-close");
-    function openD(){ body.classList.add("drawer-open"); hamb.setAttribute("aria-expanded","true"); drawer.setAttribute("aria-hidden","false"); }
-    function closeD(){ body.classList.remove("drawer-open"); hamb.setAttribute("aria-expanded","false"); drawer.setAttribute("aria-hidden","true"); }
-    if(hamb) hamb.addEventListener("click", function(){ body.classList.contains("drawer-open")?closeD():openD(); });
-    if(scrim) scrim.addEventListener("click", closeD);
-    if(dclose) dclose.addEventListener("click", closeD);
-    document.addEventListener("keydown", function(e){ if(e.key==="Escape" && body.classList.contains("drawer-open")) closeD(); });
-    if(drawer) drawer.addEventListener("click", function(e){ if(e.target.closest("a")) closeD(); });
-
-    var db=$("details-btn"), dp=$("details");
-    if(db&&dp) db.addEventListener("click", function(){ var open=dp.classList.toggle("open"); db.setAttribute("aria-expanded", String(open)); db.firstChild.textContent = open?"Hide details ":"Show details "; });
-    function money(n){ if(n>=1e9) return "$"+(n/1e9).toFixed(2)+"B"; if(n>=1e6) return "$"+(n/1e6).toFixed(1)+"M"; if(n>=1e3) return "$"+(n/1e3).toFixed(0)+"K"; return "$"+n.toFixed(0); }
-    function gwei(g){ return (g>=0.1?g.toFixed(2):(g>=0.001?g.toFixed(3):Number(g.toPrecision(2)).toString()))+" gwei"; }
-    function grab(url,opt){ var c="AbortController" in window ? new AbortController():null, t=c?setTimeout(function(){c.abort();},7000):null; var o=opt||{}; if(c) o.signal=c.signal; return fetch(url,o).then(function(r){ if(!r.ok) throw 0; return r.json(); }).finally(function(){ if(t) clearTimeout(t); }); }
-    grab("https://api.llama.fi/v2/historicalChainTvl/Zora").then(function(a){ if(!a||!a.length) return; var v=Number(a[a.length-1].tvl); if(isFinite(v)&&v>0) $("sig0").textContent=money(v); }).catch(function(){});
-    grab("https://rpc.zora.energy",{ method:"POST", headers:{"Content-Type":"application/json"}, body:'{"jsonrpc":"2.0","id":1,"method":"eth_gasPrice","params":[]}' }).then(function(j){ var wei=j&&j.result?parseInt(j.result,16):NaN; if(isFinite(wei)&&wei>0) $("sig1").textContent=gwei(wei/1e9); }).catch(function(){});
-  })();
-  </script>
+</section>
+<footer class="cab676a">
+  <div class="c614621 cbf693d">
+    <span class="c612c9d">The guide</span>
+    <p class="c4f13ad">Last updated <span>Updated Oct 09, 2026</span></p>
+  </div>
+</footer>
+<script>
+(() => {
+  const toc = document.getElementById('toc-list');
+  const sections = Array.from(document.querySelectorAll('#guide-sections .c94d82f'));
+  const fallback = toc.querySelector('[data-sections-link]');
+  const fragment = document.createDocumentFragment();
+  sections.forEach((section, index) => {
+    if (!section.id) {
+      const base = `guide-section-${index + 1}`;
+      let id = base;
+      let suffix = 1;
+      while (document.getElementById(id)) id = `${base}-${suffix++}`;
+      section.id = id;
+    }
+    const heading = section.querySelector('.ca22357, h2, h3');
+    const item = document.createElement('li');
+    const link = document.createElement('a');
+    link.className = 'toc-link';
+    link.href = `#${encodeURIComponent(section.id)}`;
+    link.textContent = heading?.textContent.trim() || section.getAttribute('aria-label') || `Section ${index + 1}`;
+    item.append(link);
+    fragment.append(item);
+  });
+  if (sections.length) fallback.parentElement.replaceWith(fragment);
+  const entries = Array.from(toc.querySelectorAll('a[href^="#"]')).map(link => {
+    const target = document.getElementById(decodeURIComponent(link.hash.slice(1)));
+    return { link, target };
+  }).filter(entry => entry.target);
+  if (!entries.length) return;
+  let activeLink;
+  let pending = false;
+  const activate = entry => {
+    if (!entry || entry.link === activeLink) return;
+    if (activeLink) activeLink.removeAttribute('aria-current');
+    entry.link.setAttribute('aria-current', 'location');
+    activeLink = entry.link;
+  };
+  const update = () => {
+    pending = false;
+    const boundary = Math.min(180, window.innerHeight * .25);
+    let active = entries[0];
+    for (const entry of entries) {
+      if (entry.target.getBoundingClientRect().top <= boundary) active = entry;
+    }
+    const root = document.scrollingElement || document.documentElement;
+    if (root.scrollHeight > window.innerHeight && Math.ceil(window.scrollY + window.innerHeight) >= root.scrollHeight - 2) {
+      active = entries[entries.length - 1];
+    }
+    activate(active);
+  };
+  const schedule = () => {
+    if (pending) return;
+    pending = true;
+    window.requestAnimationFrame(update);
+  };
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(schedule, {
+      rootMargin: '-12% 0px -60% 0px',
+      threshold: [0, .1, .5, 1]
+    });
+    entries.forEach(entry => observer.observe(entry.target));
+  }
+  toc.addEventListener('click', event => {
+    const link = event.target.closest('a');
+    if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const entry = entries.find(item => item.link === link);
+    if (!entry) return;
+    event.preventDefault();
+    const hadTabindex = entry.target.hasAttribute('tabindex');
+    if (!hadTabindex) {
+      entry.target.setAttribute('tabindex', '-1');
+      entry.target.addEventListener('blur', () => entry.target.removeAttribute('tabindex'), { once: true });
+    }
+    entry.target.focus({ preventScroll: true });
+    entry.target.scrollIntoView({
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+      block: 'start'
+    });
+    if (window.location.hash !== link.hash) {
+      try { window.history.pushState(null, '', link.hash); } catch {}
+    }
+    activate(entry);
+  });
+  window.addEventListener('scroll', schedule, { passive: true });
+  window.addEventListener('resize', schedule, { passive: true });
+  window.addEventListener('hashchange', schedule);
+  window.addEventListener('load', schedule, { once: true });
+  update();
+})();
+</script>
 </body>
 </html>
